@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pump & Hydraulic System Simulator</title>
+    <link rel="stylesheet" href="../brand.css">
+</head>
+<body>
 
+<h1>Pump & Hydraulic System Simulation</h1>
+<p>Based on Darcy–Weisbach friction modeling and centrifugal pump curve analysis.</p>
+
+<hr>
+
+<section>
+<h2>Fluid Properties</h2>
+<label>Density (kg/m³)</label>
+<input id="density" type="number" step="any">
+
+<label>Viscosity (Pa·s)</label>
+<input id="viscosity" type="number" step="any">
+</section>
+
+<hr>
+
+<section>
+<h2>Piping System</h2>
+<label>Pipe Diameter (m)</label>
+<input id="diameter" type="number" step="any">
+
+<label>Pipe Length (m)</label>
+<input id="length" type="number" step="any">
+
+<label>Roughness (m)</label>
+<input id="roughness" type="number" step="any">
+
+<label>Static Head (m)</label>
+<input id="staticHead" type="number" step="any">
+</section>
+
+<hr>
+
+<section>
+<h2>Flow Range</h2>
+<label>Min Flow (m³/s)</label>
+<input id="flowMin" type="number" step="any">
+
+<label>Max Flow (m³/s)</label>
+<input id="flowMax" type="number" step="any">
+
+<label>Resolution Points</label>
+<input id="points" type="number">
+</section>
+
+<hr>
+
+<section>
+<h2>Pump Data</h2>
+
+<label>Configuration</label>
+<select id="pumpType">
+    <option value="single">Single</option>
+    <option value="series">Series</option>
+    <option value="parallel">Parallel</option>
+</select>
+
+<label>Number of Pumps</label>
+<input id="numberOfPumps" type="number">
+
+<label>Q1 (m³/s)</label>
+<input id="Q1" type="number" step="any">
+
+<label>H1 (m)</label>
+<input id="H1" type="number" step="any">
+
+<label>Q2 (m³/s)</label>
+<input id="Q2" type="number" step="any">
+
+<label>H2 (m)</label>
+<input id="H2" type="number" step="any">
+
+<label>Efficiency (0–1)</label>
+<input id="efficiency" type="number" step="any">
+
+<label>NPSHr (m)</label>
+<input id="NPSHr" type="number" step="any">
+
+</section>
+
+<hr>
+
+<section>
+<h2>Suction Conditions</h2>
+
+<label>Suction Pressure (Pa)</label>
+<input id="suctionPressure" type="number" step="any">
+
+<label>Vapor Pressure (Pa)</label>
+<input id="vaporPressure" type="number" step="any">
+
+<label>Suction Head (m)</label>
+<input id="suctionHead" type="number" step="any">
+
+<label>Suction Friction Loss (m)</label>
+<input id="suctionFrictionLoss" type="number" step="any">
+
+</section>
+
+<hr>
+
+<button id="runSimulation">Run Simulation</button>
+
+<hr>
+
+<section>
+<h2>Results</h2>
+
+<div id="results"></div>
+
+</section>
+
+<script type="module" src="../js/ui/pumpSystemUI.js"></script>
+
+</body>
+</html>
