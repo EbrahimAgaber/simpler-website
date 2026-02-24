@@ -71,3 +71,8 @@ function displayResults(result) {
         <p><strong>Cavitation Warning:</strong> ${n.cavitationWarning ? "YES" : "NO"}</p>
     `;
 }
+renderPumpChart(
+    "pumpChartCanvas",
+    result.curves,
+    result.operatingPoint
+);
