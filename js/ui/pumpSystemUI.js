@@ -1,5 +1,5 @@
 import { simulatePumpSystem } from "../hydraulic/pumpSystem.js";
-
+import { renderPumpChart } from "./chartEngine.js";
 document.getElementById("runSimulation")
     .addEventListener("click", runSimulation);
 
