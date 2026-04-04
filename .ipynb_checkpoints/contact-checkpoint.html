@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact Ebrahim Gaber — Email or WhatsApp</title>
+  <link rel="stylesheet" href="brand.css">
+  <meta name="description" content="Contact Ebrahim Gaber — Email or WhatsApp.">
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="brand-title">Simpler</div>
+          <div class="brand-subtitle">Ebrahim Gaber</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Articles</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="control-buttons">
+        <button id="themeToggle" class="small-btn" title="Toggle theme" aria-label="Toggle dark and light theme">🌓</button>
+        <button id="langToggle" class="small-btn" title="Toggle language" aria-label="Toggle language">AR</button>
+        <button id="navToggle" class="small-btn nav-toggle" title="Toggle navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">I respond faster to clear, concise messages. Use email for proposals and WhatsApp for quick clarifications.</p>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p class="muted">Send a short message with project summary and attachments if relevant.</p>
+          <a class="cta-primary" href="mailto:ea.gaber10@gmail.com" id="emailBtn">Email Me</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <p class="muted">Start with a short context so I can reply efficiently.</p>
+          <a class="cta-primary" href="https://wa.me/96653317485?text=Hello%20Ebrahim%2C%20I%20would%20like%20to%20discuss%20a%20project" id="waBtn" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="font-weight:700">Simpler — Ebrahim Gaber</div>
+      <div class="muted" style="font-size:13px">© <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="viewerModal" aria-hidden="true">
+    <div class="modal-card" aria-label="Post viewer">
+      <button class="modal-close" id="viewerClose" aria-label="Close post viewer">✕</button>
+      <div id="viewerInner" style="min-height:60vh"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

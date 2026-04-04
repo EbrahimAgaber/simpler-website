@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ngl-fractionation",
+    "title": "How I Modeled NGL Fractionation Using Aspen Plus",
+    "category": "Process Optimization",
+    "readTime": "8 min read",
+    "summary": "Step-by-step walkthrough of building a Natural Gas Liquids (NGL) fractionation model using Aspen Plus and connecting it to machine learning for prediction.",
+    "url": "docs/ngl-fractionation.html"
+  },
+  {
+    "id": "predictive-maintenance",
+    "title": "Predictive Maintenance for Refining Equipment",
+    "category": "Machine Learning",
+    "readTime": "6 min read",
+    "summary": "How predictive models can help identify fouling and mechanical issues before they happen in refinery units.",
+    "url": "docs/predictive-maintenance.html"
+  },
+  {
+    "id": "process-design-interviews",
+    "title": "How to Present Process Design Work in Interviews",
+    "category": "Career",
+    "readTime": "4 min read",
+    "summary": "Learn how to communicate your simulation results clearly, link design logic to outcomes, and impress interviewers.",
+    "url": "docs/process-design-interviews.html"
+  }
+]

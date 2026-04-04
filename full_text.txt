@@ -1,0 +1,1827 @@
+
+Table of contents
+Preface 6
+About the Author 8
+0.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+1 Chapter 1: Introduction to Machine Learning in Chemical Engineering 11
+1.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+1.2 Motivation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+1.3 Engineering Relevance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+1.4 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+1.4.1 What is Machine Learning? . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+1.4.2 Key Categories of Machine Learning . . . . . . . . . . . . . . . . . . . . . . . 12
+1.5 Chemical Engineering Perspective . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+1.6 Python Implementation: Exploring Process Data . . . . . . . . . . . . . . . . . . . . 13
+1.7 Engineering Case Study: Predicting Reactor Yield . . . . . . . . . . . . . . . . . . . 14
+1.7.1 Problem Formulation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+1.8 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+2 Chapter 2: Python and Data Handling for Engineers 17
+2.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+2.2 Refresher on Python for Scientific Computing . . . . . . . . . . . . . . . . . . . . . . 17
+2.2.1 Variables, Arrays, and Data Types . . . . . . . . . . . . . . . . . . . . . . . . 17
+2.3 Functions and Modular Code . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+2.4 Data Handling with NumPy and Pandas . . . . . . . . . . . . . . . . . . . . . . . . . 19
+2.4.1 Creating and Manipulating Arrays and DataFrames . . . . . . . . . . . . . . 19
+2.5 Missing Data Handling, Scaling, and Normalization . . . . . . . . . . . . . . . . . . . 19
+2.6 Visualization of Process Data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+2.7 Engineering Case Study: Analyzing Feed Composition and Process Output . . . . . 23
+2.7.1 Problem Formulation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+2.8 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+3 Chapter 3: Regression Techniques for Process Modeling 27
+3.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+3.2 Role of Regression in Predicting Process Variables . . . . . . . . . . . . . . . . . . . 27
+3.3 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+3.3.1 Linear Regression . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+3.3.2 Multivariate Regression . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+3.3.3 Mathematical Formulation: Ordinary Least Squares (OLS) . . . . . . . . . . 28
+3.4 Interpretation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+3.5 Engineering Case Study: Predicting Heat Exchanger Performance . . . . . . . . . . . 30
+3.5.1 Problem Formulation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+2
+3.6 Insights . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+3.7 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+4 Chapter 4: Classification for Process Stability 33
+4.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+4.1.1 Importance of Classifying Operating Conditions as Stable/Unstable . . . . . 33
+4.2 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+4.2.1 Logistic Regression . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+4.2.2 Decision Trees . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+4.2.3 Random Forests . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+4.2.4 Evaluation Metrics: Confusion Matrix . . . . . . . . . . . . . . . . . . . . . . 34
+4.3 Engineering Case Study: Classifying Stable vs Unstable Chemical Reactors . . . . . 37
+4.4 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+5 Chapter 5: Clustering Process Conditions 39
+5.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+5.2 Use of Clustering to Identify Patterns in Multivariable Process Data . . . . . . . . . 39
+5.3 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+5.4 K-Means, Hierarchical Clustering, and Silhouette Score . . . . . . . . . . . . . . . . 40
+5.4.1 K-Means Clustering . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+5.4.2 Hierarchical Clustering . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+5.4.3 Silhouette Score . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+5.5 Physical Interpretation of Clusters in Process Engineering . . . . . . . . . . . . . . . 41
+5.6 Python Implementation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+5.6.1 Clustering Feed Compositions and Operational Regimes . . . . . . . . . . . . 41
+5.7 Engineering Case Study: Identifying Operating Regimes in a Distillation Process
+Using Synthetic Data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+5.8 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+6 Chapter 6: Dimensionality Reduction and Principal Component Analysis (PCA) 45
+6.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+6.1.1 Motivation: Dealing with High-Dimensional Process Data . . . . . . . . . . . 45
+6.2 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+6.3 Mathematical Formulation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+6.4 Python Implementation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+6.4.1 PCA on Synthetic Multivariable Process Dataset . . . . . . . . . . . . . . . . 47
+6.5 Engineering Case Study . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+6.5.1 Reducing Dimensionality of Sensor Data from a Chemical Reactor . . . . . . 49
+6.6 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+7 Chapter 7: Neural Networks for Process Modeling 51
+7.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+7.2 Why Neural Networks Are Useful in Nonlinear Process Systems . . . . . . . . . . . . 51
+7.3 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+7.4 Perceptrons, Activation Functions, Feedforward Networks . . . . . . . . . . . . . . . 52
+7.5 Mathematical Formulation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+7.5.1 Forward Propagation, Loss Functions, Gradient Descent . . . . . . . . . . . . 52
+3
+7.6 Python Implementation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
+7.6.1 Neural Network for Predicting Nonlinear Process Outputs Using TensorFlow 53
+7.7 Engineering Case Study . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+7.7.1 Modeling a Nonlinear CSTR Process with Multiple Inputs and Outputs . . . 55
+7.8 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+8 Chapter 8: Time Series Modeling in Process Engineering 57
+8.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+8.2 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+8.2.1 Nature of Time-Dependent Process Data . . . . . . . . . . . . . . . . . . . . 57
+8.2.2 Autoregressive and Moving A verage Models (ARIMA) . . . . . . . . . . . . . 58
+8.2.3 Recurrent Neural Networks and LSTM Models . . . . . . . . . . . . . . . . . 58
+8.3 Python Implementation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+8.3.1 Predicting Process Variable Evolution Over Time . . . . . . . . . . . . . . . . 59
+8.4 Engineering Case Study . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+8.4.1 Forecasting Temperature and Concentration Profiles in a Continuous Reactor 61
+8.5 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+9 Chapter 9: Model Validation, Uncertainty, and Interpretability 63
+9.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+9.2 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+9.2.1 Overfitting and Underfitting . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+9.2.2 Cross-Validation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+9.2.3 Model Interpretability . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+9.3 Python Implementation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+9.3.1 Evaluating Regression and Classification Models . . . . . . . . . . . . . . . . 64
+9.4 Engineering Case Study . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+9.4.1 Quantifying Uncertainty in Predicted Reactor Yields . . . . . . . . . . . . . . 65
+9.5 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+10 Chapter 10: Integrating Machine Learning into Chemical Engineering Practice 67
+10.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+10.2 Conceptual Foundations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+10.2.1 Deployment Strategies for Machine Learning Models . . . . . . . . . . . . . . 67
+10.2.2 Monitoring Model Performance . . . . . . . . . . . . . . . . . . . . . . . . . . 68
+10.2.3 Model Maintenance and Lifecycle Management . . . . . . . . . . . . . . . . . 68
+10.3 Engineering Case Study . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+10.3.1 Decision Support for Process Optimization . . . . . . . . . . . . . . . . . . . 69
+10.4 Chapter Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+11 Appendix A: Python Primer for Engineers 70
+11.1 Variables and Data Types . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+11.1.1 Control Structures . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+11.1.2 Functions and Modularity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+12 Appendix B: NumPy, Pandas, scikit-learn, and TensorFlow Cheat Sheet 72
+12.1 Pandas . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+4
+12.2 scikit-learn . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+12.2.1 TensorFlow . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+13 Appendix C: Synthetic Data Generation for Chemical Processes 74
+13.1 Principles of Synthetic Data Generation . . . . . . . . . . . . . . . . . . . . . . . . . 74
+14 Appendix D: Recommended Further Reading 75
+14.1 Machine Learning and Data Science . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+14.2 Chemical Engineering Applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+14.3 Data-Driven Process Modeling . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+15 References 76
+5
+Preface
+Chemical engineering is undergoing a quiet revolution. For decades, the discipline has been built on
+first principles: thermodynamics, transport phenomena, reaction engineering, and process design.
+These foundations remain indispensable. However, modern industry now generates vast amounts of
+data—process variables, sensor streams, operational histories, and experimental results—that often
+remain underutilized. At the same time, machine learning has matured from an academic curiosity
+into a practical engineering tool. During my academic journey at Universiti Teknologi Malaysia
+(UTM), I was trained rigorously in process design, simulation, safety analysis, and environmental
+engineering. I worked on hydrothermal gasification for green hydrogen production, designed carbon
+capture systems, and conducted experimental research in biomass conversion. These experiences
+reinforced the power of classical chemical engineering methods.Yet, while working with experimental
+datasets and process simulations, I realized something important: Traditional models explain why
+systems behave the way they do. Machine learning models help us predict how they will behave
+next.
+Rather than viewing these approaches as competing philosophies, I see them as complementary
+tools. This book was written to serve engineers who want to:
+• Integrate machine learning into process design and optimization
+• Use predictive modeling for sustainable chemical technologies
+• Enhance R&D through intelligent data analysis
+• Bridge academic research and industrial implementation
+The goal is not to replace engineering fundamentals with algorithms. Instead, it is to empower
+engineers to augment their expertise with modern computational intelligence.
+Whether you are:
+• A graduate student entering research,
+• A process engineer seeking optimization tools,
+• An academic exploring data-driven methodologies,
+• Or a consultant looking to provide high-impact analytical solutions,
+this book is designed to provide both conceptual clarity and practical direction.
+My specialization in machine learning and professional certification in data analytics reflect my
+belief that the future of chemical engineering lies at the intersection of sustainability, digitalization,
+and intelligent systems.
+If this book inspires even one engineer to combine rigorous physical insight with modern data-driven
+tools, then it will have fulfilled its purpose.
+6
+Ebrahim Abdo MohammedGaber Chemical Engineer | R&D Specialist | Data Analyst
+7
+About the Author
+Ebrahim Abdo Mohammed Gaber is a Chemical Engineer, R&D Specialist, and Data Analyst
+with a strong interdisciplinary focus on sustainable process engineering and machine learning
+applications in chemical systems. He graduated with a Bachelor of Engineering (Hons) in Chemical
+Engineering from Universiti Teknologi Malaysia (UTM) with a CGPA of 3.52/4.00
+Ebrahim’s technical foundation spans process simulation (Aspen HYSYS/Plus), equipment sizing,
+distillation design, process optimization, and environmental systems engineering . His academic and
+research experience includes hydrothermal gasification for green hydrogen production, carbon capture
+and utilization (CCU) plant design, effluent treatment systems, and environmental impact assessment
+projects.During his tenure as an Assistant Chemical Engineer (R&D) with the Chemical Reaction
+Engineering Group (CREG) at UTM, he designed and executed biomass gasification experiments,
+performed gas chromatography analysis, and applied statistical modeling using Response Surface
+Methodology (RSM).His work reflects a commitment to advancing green hydrogen technologies
+and sustainable chemical solutions. Recognizing the transformative role of artificial intelligence in
+engineering, Ebrahim pursued advanced training in data science and machine learning. He completed
+the Machine Learning Specialization and Data Analytics Specialization from DeepLearning.AI, along
+with additional certifications in process safety, experimental design, and advanced Excel analytics.
+His combined expertise in chemical engineering, machine learning, and data analytics positions
+him at the intersection of process innovation and intelligent systems design. Through this book, he
+aims to bridge traditional chemical engineering principles with modern data-driven methodologies,
+empowering engineers to build smarter, safer, and more sustainable industrial systems.
+0.1 Introduction
+Chemical engineering has historically been grounded in first-principles modeling. The discipline was
+built upon conservation laws, thermodynamics, transport phenomena, reaction kinetics, and rigorous
+mathematical analysis. For decades, these principles enabled engineers to design reactors, separation
+systems, and control architectures with remarkable predictive capability. However, the industrial
+landscape has evolved. Modern chemical processes generate unprecedented volumes of data through
+distributed control systems, advanced sensors, online analyzers, and digital manufacturing platforms.
+This transformation has created both an opportunity and a challenge: how to extract meaningful
+knowledge from complex, high-dimensional process data while maintaining the physical rigor that
+defines engineering practice.
+Machine learning offers a complementary modeling paradigm. Rather than deriving governing
+equations exclusively from mechanistic principles, machine learning constructs predictive relation-
+ships directly from data. In doing so, it provides tools capable of handling nonlinear behavior,
+multivariable interactions, noisy measurements, and complex patterns that may be analytically
+8
+intractable. Yet, without careful integration into engineering reasoning, machine learning risks
+becoming a purely computational exercise detached from physical understanding.
+This book was written to bridge that gap.
+The objective is not merely to introduce algorithms, nor to provide superficial tutorials in program-
+ming. Instead, this text develops machine learning from an engineering perspective—anchored in
+chemical process understanding, mathematical clarity, and practical applicability. Every method
+presented is interpreted through the lens of chemical engineering: how it relates to classical modeling,
+where its assumptions hold, and where its limitations must be respected.
+The structure of the book reflects a deliberate progression.
+Part I establishes foundational concepts, introducing machine learning terminology, data handling,
+and the computational tools required for implementation. The emphasis is placed on understanding
+data as a representation of physical systems rather than as abstract numerical arrays
+Part II develops supervised learning methods for regression and classification, framing them as
+extensions of familiar engineering tasks such as parameter estimation, performance prediction, and
+operational stability analysis.
+Part III addresses unsupervised learning and dimensionality reduction, providing tools for inter-
+preting complex multivariable datasets, identifying operational regimes, and extracting dominant
+process patterns.
+Part IV advances toward nonlinear modeling, time-dependent systems, validation methodologies,
+and integration strategies—areas where machine learning intersects most directly with industrial
+deployment and decision support.
+Part V provides technical appendices to support reproducibility, implementation, and continued
+study.
+Throughout the text, several principles are maintained:
+• Concepts are introduced before mathematics.
+• Mathematics is presented to clarify meaning, not to obscure it.
+• Algorithms are interpreted physically whenever possible.
+• Synthetic datasets are constructed to reflect realistic chemical process behavior.
+• Model validation, uncertainty, and limitations are treated as central—not peripheral—topics.
+The intended audience includes chemical engineers with no prior background in machine learning,
+graduate students seeking to expand their modeling toolkit, and practicing engineers transitioning
+into data-driven roles. The goal is to provide both conceptual depth and practical competence,
+enabling readers to develop, evaluate, and responsibly deploy machine learning models in chemical
+engineering contexts.
+Machine learning does not replace first-principles modeling. Rather, it expands the engineer’s
+analytical repertoire. When used thoughtfully, it can enhance predictive accuracy, reveal hidden
+9
+process structure, support optimization, and improve operational resilience. When used carelessly, it
+can produce misleading results divorced from physical reality. The distinction lies in understanding.
+This book seeks to cultivate that understanding.
+It invites the reader to approach machine learning not as a collection of algorithms, but as an
+engineering discipline grounded in rigor, interpretation, and responsible application.
+10
+1 Chapter 1: Introduction to Machine Learning in
+Chemical Engineering
+1.1 Introduction
+Machine learning (ML) has emerged as a transformative tool in chemical engineering, enabling
+engineers to extract actionable insights from complex, multivariate datasets. Unlike traditional
+first-principles modeling, which relies on explicit physical laws, ML models can identify patterns,
+correlations, and nonlinear relationships directly from data. This capability is particularly valuable
+in processes where mechanistic understanding is limited, experimental data are abundant, or process
+dynamics are highly nonlinear.
+This chapter introduces the fundamental concepts of machine learning, designated specifically for
+chemical engineers. It establishes a foundation for subsequent chapters that delve into supervised,
+unsupervised, and advanced machine learning methods applied to chemical processes.
+1.2 Motivation
+The modern chemical engineer is increasingly faced with data-rich environments:
+• Process optimization: Large-scale plants produce thousands of measurements per second
+from sensors and control systems.
+• Predictive maintenance: Anticipating equipment failures can significantly reduce downtime
+and operational costs.
+• Data-driven control: Machine learning enables the design of adaptive controllers that
+respond to changing process conditions.
+Machine learning provides a systematic framework for leveraging this data to improve process
+understanding, design, and operation.
+1.3 Engineering Relevance
+Machine learning complements classical chemical engineering approaches:
+• Reactor modeling: Predicting yields and selectivity from multiple interacting process
+variables.
+• Separation processes: Estimating performance metrics without explicitly solving complex
+partial differential equations or relying solely on empirical correlations.
+• Energy efficiency: Identifying optimal operating conditions from historical plant data.
+11
+By integrating machine learning with engineering intuition, practitioners can generate models that
+are not only accurate but also interpretable and aligned with underlying physical principles.
+1.4 Conceptual Foundations
+1.4.1 What is Machine Learning?
+Machine learning is the study of algorithms that improve their performance at a given task over
+time with experience, typically by learning patterns from data.
+Formally, a machine learning model seeks to approximate an unknown functional relationship:
+Y = 𝑓(X) + 𝜀
+where:
+• X ∈ ℝ 𝑛×𝑝 represents the matrix of input variables,
+• Y ∈ ℝ 𝑛×𝑞 represents the output variables,
+• 𝑓(⋅)denotes an unknown, potentially nonlinear mapping,
+• 𝜀 represents measurement noise or modeling error.
+1.4.2 Key Categories of Machine Learning
+• Supervised learning: Learn a mapping from inputs X to outputs Y using labeled data.
+Example: Predicting reactor yield 𝑌 as a function of temperature 𝑇, pressure 𝑃, and feed
+composition z:
+𝑌 = 𝑓(𝑇 , 𝑃 , z)
+• Unsupervised learning: Identify structure or patterns in unlabeled data without predefined
+output variables.
+Example: Clustering operating regimes of a distillation column based on multivariate sensor
+data.
+• Reinforcement learning: Learn optimal decision policies through trial-and-error interaction
+with a dynamic system.
+Example: Optimizing a multistage separation process via sequential control actions to maximize
+product purity or minimize energy consumption.
+12
+1.5 Chemical Engineering Perspective
+In chemical engineering applications, data typically originate from laboratory experiments, process
+simulations, or industrial plant sensors. Machine learning models provide:
+• Nonlinear mapping: Capture complex interactions among variables that are difficult to
+model using first-principles alone.
+• Dimensionality reduction: Transform high-dimensional sensor data into lower-dimensional
+representations suitable for visualization or control.
+• Predictive capability: Forecast process behavior under untested or hypothetical operating
+conditions.
+Importantly, machine learning does not replace first-principles models. Instead, it augments them,
+enabling hybrid modeling approaches that combine mechanistic understanding with data-driven
+inference.
+1.6 Python Implementation: Exploring Process Data
+We begin by generating a synthetic dataset representing a chemical reactor, including temperature
+(K), pressure (bar), feed concentration (mol L −1), and product yield ( %).
+import numpy as np
+import pandas as pd
+# Set random seed for reproducibility
+np.random.seed(42)
+# Generate synthetic process data
+n_samples = 100
+temperature = np.random.normal(loc=350, scale =10, size =n_samples) # K
+pressure = np.random.normal(loc=5, scale =0.5, size =n_samples) # bar
+feed_conc = np.random.normal(loc=2, scale =0.2, size =n_samples) # mol/L
+# Simulate yield using a nonlinear relationship
+yield_percent = 70 + 0.1*(temperature-350) + 2*(pressure-5) - 5*(feed_conc-2)**2
+yield_percent += np.random.normal(0, 1, size =n_samples) # add noise
+# Create DataFrame
+data = pd.DataFrame({
+'Temperature_K': temperature,
+'Pressure_bar': pressure,
+'Feed_Conc_mol_L': feed_conc,
+'Yield_percent': yield_percent
+})
+data.head()
+#This DataFrame provides a realistic, physically meaningful dataset to explore in subsequent chapters.
+13
+Temperature_K Pressure_bar Feed_Conc_mol_L Yield_percent
+0 354.967142 4.292315 2.071557 68.226746
+1 348.617357 4.789677 2.112157 68.818013
+2 356.476885 4.828643 2.216610 70.817668
+3 365.230299 4.598861 2.210760 71.109023
+4 347.658466 4.919357 1.724466 69.204065
+1.7 Engineering Case Study: Predicting Reactor Yield
+1.7.1 Problem Formulation
+The objective is to predict the reactor yield ( %) based on operating conditions. This constitutes a
+supervised regression problem , where the input variables are temperature, pressure, and feed
+concentration, and the output variable is the reactor yield.
+steps 1. Generate or collect process data (done above).
+2. Explore data distributions and correlations.
+3. Apply regression or other ML techniques to model the output.
+# Exploratory Data Analysis
+import matplotlib.pyplot as plt
+import seaborn as sns
+# Pairplot to visualize relationships
+sns.pairplot(data)
+plt.show()
+# Correlation matrix
+corr_matrix = data.corr()
+print(corr_matrix)
+14
+Temperature_K Pressure_bar Feed_Conc_mol_L Yield_percent
+Temperature_K 1.000000 -0.136422 0.190840 0.411537
+Pressure_bar -0.136422 1.000000 -0.036632 0.556666
+Feed_Conc_mol_L 0.190840 -0.036632 1.000000 0.047596
+Yield_percent 0.411537 0.556666 0.047596 1.000000
+Observations from this analysis guide feature selection, model choice, and interpretation, ensuring
+alignment with engineering intuition.
+15
+1.8 Chapter Summary
+• Machine learning is a powerful tool to complement classical chemical engineering modeling.
+• Supervised, unsupervised, and reinforcement learning each have distinct applications in process
+engineering.
+• Conceptual understanding and engineering intuition are crucial to interpret ML outputs
+correctly.
+• Python provides a flexible environment for data handling, visualization, and modeling.
+• Synthetic, physically meaningful datasets allow experimentation and practice without relying
+on proprietary plant data.
+• This chapter sets the foundation for regression and classification techniques, which will be
+explored in the next chapters, providing practical tools to model chemical processes with ML.
+16
+2 Chapter 2: Python and Data Handling for
+Engineers
+2.1 Introduction
+The effectiveness of machine learning in chemical engineering depends critically on how data are
+represented, processed, and interpreted before any model is constructed. Python has emerged
+as the dominant language for scientific computing and data-driven modeling due to its clarity,
+extensibility, and strong ecosystem of numerical libraries. For chemical engineers, Python serves not
+as a replacement for physical modeling, but as a computational environment that enables structured
+handling of experimental, simulation, and plant data.
+This chapter introduces Python from an engineering perspective, emphasizing data structures
+and workflows that align naturally with chemical process variables. The objective is not to teach
+programming for its own sake, but to establish the computational literacy required for reliable
+machine learning modeling.
+2.2 Refresher on Python for Scientific Computing
+2.2.1 Variables, Arrays, and Data Types
+In Python, variables are symbolic references to objects stored in memory. Unlike strongly typed
+engineering software, Python variables do not require explicit type declarations. While this
+flexibility accelerates development, it also places responsibility on the engineer to maintain clarity
+and consistency.
+From a chemical engineering standpoint, numerical data typically fall into three categories:
+• Scalars: single values such as temperature, pressure, or flow rate
+• V ectors: measurements across time, space, or experimental runs
+• Matrices: multivariable datasets representing multiple operating conditions
+The NumPy library provides array-based data structures that efficiently represent these quantities.
+import numpy as np
+# Scalar
+temperature = 350.0 # K
+# Vector: temperature measurements
+17
+temperature_profile = np.array([345, 348, 350, 352, 355])
+# Matrix: operating conditions (rows = experiments, columns = variables)
+operating_conditions = np.array([
+[350, 5.0, 2.0],
+[360, 5.2, 2.1],
+[340, 4.8, 1.9]
+])
+temperature, temperature_profile, operating_conditions
+(350.0,
+array([345, 348, 350, 352, 355]),
+array([[350. , 5. , 2. ],
+[360. , 5.2, 2.1],
+[340. , 4.8, 1.9]]))
+Each column of the matrix may correspond to a process variable such as temperature, pressure, or
+feed concentration, mirroring the structure of experimental datasets.
+2.3 Functions and Modular Code
+Chemical engineering models often involve repeated calculations: evaluating thermodynamic proper-
+ties, computing conversion, or estimating performance metrics. Encapsulating these operations in
+functions improves readability and reproducibility.
+def reactor_yield(temperature, pressure, feed_conc):
+"""
+Estimate reactor yield (%) based on operating conditions.
+"""
+yield_estimate = (
+70
++ 0.1 * (temperature - 350)
++ 2.0 * (pressure - 5.0)
+- 5.0 * (feed_conc - 2.0) ** 2
+)
+return yield_estimate
+reactor_yield(350, 5.0, 2.0)
+70.0
+Functions serve as computational analogs to algebraic correlations commonly used in process
+design.
+18
+2.4 Data Handling with NumPy and Pandas
+2.4.1 Creating and Manipulating Arrays and DataFrames
+While NumPy arrays are ideal for numerical operations, real engineering datasets require labeled
+variables and flexible indexing. Pandas provides the DataF rame, a table-like structure that closely
+resembles experimental spreadsheets and process historians.
+import pandas as pd
+data = pd.DataFrame({
+"Temperature_K": [ 345, 350, 355, 360],
+"Pressure_bar": [ 4.8, 5.0, 5.2, 5.1],
+"Feed_Conc_mol_L": [ 1.9, 2.0, 2.1, 2.0],
+"Yield_percent": [ 68, 71, 73, 72]
+})
+data
+Temperature_K Pressure_bar Feed_Conc_mol_L Yield_percent
+0 345 4.8 1.9 68
+1 350 5.0 2.0 71
+2 355 5.2 2.1 73
+3 360 5.1 2.0 72
+Each column corresponds to a physical variable, preserving engineering meaning and unit aware-
+ness.
+2.5 Missing Data Handling, Scaling, and Normalization
+In industrial environments, missing or corrupted sensor data are unavoidable. Ignoring these issues
+can lead to biased or unstable models.
+# Introduce missing data
+data.loc[2, "Pressure_bar"] = np.nan
+data
+Temperature_K Pressure_bar Feed_Conc_mol_L Yield_percent
+0 345 4.8 1.9 68
+1 350 5.0 2.0 71
+2 355 NaN 2.1 73
+3 360 5.1 2.0 72
+Handling missing values requires engineering judgment:
+19
+# Replace missing pressure with mean value
+data["Pressure_bar"] = data["Pressure_bar"].fillna(data["Pressure_bar"].mean())
+data
+Temperature_K Pressure_bar Feed_Conc_mol_L Yield_percent
+0 345 4.800000 1.9 68
+1 350 5.000000 2.0 71
+2 355 4.966667 2.1 73
+3 360 5.100000 2.0 72
+Scaling is equally important, as ML algorithms are sensitive to variable magnitudes.
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(data[["Temperature_K", "Pressure_bar", "Feed_Conc_mol_L"]])
+scaled_data
+array([[-1.34164079, -1.5430335 , -1.41421356],
+[-0.4472136 , 0.3086067 , 0. ],
+[ 0.4472136 , 0. , 1.41421356],
+[ 1.34164079, 1.2344268 , 0. ]])
+Scaling ensures that no single variable dominates due to units rather than physical importance.
+2.6 Visualization of Process Data
+Visualization is a diagnostic tool, not merely a presentation aid. For engineers, plots reveal
+correlations, anomalies, and operating regimes.
+import matplotlib.pyplot as plt
+plt.scatter(data["Temperature_K"], data[ "Yield_percent"])
+plt.xlabel("Temperature (K)" )
+plt.ylabel("Yield (%)" )
+plt.title("Effect of Temperature on Reactor Yield" )
+plt.grid(True)
+plt.show()
+20
+Histograms reveal distributions:
+plt.hist(data["Feed_Conc_mol_L"], bins =5)
+plt.xlabel("Feed Concentration (mol/L)" )
+plt.ylabel("Frequency")
+plt.title("Distribution of Feed Concentration" )
+plt.show()
+21
+For multivariable inspection, heatmaps are especially informative.
+import seaborn as sns
+sns.heatmap(data.corr(), annot =True, cmap ="coolwarm")
+plt.title("Correlation Matrix of Process Variables" )
+plt.show()
+22
+2.7 Engineering Case Study: Analyzing Feed Composition and Process
+Output
+2.7.1 Problem Formulation
+Consider a reactor where yield depends on feed composition and operating conditions. The objective
+is to explore how variations in feed concentration influence output, prior to any formal modeling.
+hypothetical Dataset Generation in python
+np.random.seed(1)
+n_samples = 120
+temperature = np.random.normal(350, 8, n_samples)
+pressure = np.random.normal(5.0, 0.4, n_samples)
+feed_conc = np.random.normal(2.0, 0.25, n_samples)
+23
+yield_percent = (
+72
++ 0.08 * (temperature - 350)
++ 1.5 * (pressure - 5.0)
+- 4.0 * (feed_conc - 2.0) ** 2
++ np.random.normal(0, 1.2, n_samples)
+)
+process_data = pd.DataFrame({
+"Temperature_K": temperature,
+"Pressure_bar": pressure,
+"Feed_Conc_mol_L": feed_conc,
+"Yield_percent": yield_percent
+})
+process_data.head()
+Temperature_K Pressure_bar Feed_Conc_mol_L Yield_percent
+0 362.994763 4.990153 1.875447 72.293763
+1 345.105949 4.689935 1.922254 72.246204
+2 345.774626 5.509502 1.999527 70.094235
+3 341.416251 5.786841 1.650845 72.428917
+4 356.923261 4.256807 1.784671 70.969881
+#Exploratory Data Analysis
+sns.pairplot(process_data)
+plt.show()
+24
+From an engineering standpoint:
+• Nonlinear dependence on feed concentration is evident
+• Yield sensitivity to temperature is moderate
+• Pressure effects are secondary but non-negligible
+These observations guide model selection in later chapters.
+2.8 Chapter Summary
+Python provides chemical engineers with a transparent and extensible environment for data handling
+and numerical analysis. NumPy arrays represent structured numerical data efficiently, while Pandas
+25
+DataFrames preserve the physical meaning of process variables. Proper handling of missing data,
+scaling, and visualization is essential for reliable machine learning applications. This chapter
+establishes the computational foundation required for regression and classification models. In the
+next chapter, these tools are applied systematically to regression techniques for process modeling,
+where predictive relationships between operating conditions and process outputs are developed and
+interpreted.
+26
+3 Chapter 3: Regression Techniques for Process
+Modeling
+3.1 Introduction
+Regression is a cornerstone of data-driven modeling in chemical engineering. It provides a quanti-
+tative framework to relate process inputs—such as temperatures, pressures, flow rates, and feed
+compositions—to outputs like product yield, heat exchanger performance, or reactor conversion.
+While first-principles models capture the mechanistic basis of chemical processes, regression enables
+engineers to identify empirical relationships when the system is too complex for analytical solutions
+or when high-dimensional process data are available.
+The objective of this chapter is to provide a rigorous introduction to regression techniques, em-
+phasizing both conceptual understanding and practical implementation using Python. Engineers
+will learn how to model process variables, interpret coefficients in physical terms, and evaluate the
+reliability of regression predictions.
+3.2 Role of Regression in Predicting Process Variables
+Regression models serve several engineering purposes:
+• Process understanding: Quantifying the effect of key variables on process performance.
+• Prediction: Estimating outputs under untested operating conditions.
+• Optimization: Identifying combinations of inputs that maximize or minimize a desired
+response.
+• Diagnostics: Detecting anomalies or outliers in plant operations.
+Unlike black-box methods, regression allows interpretable relationships, where each coefficient
+reflects a measurable effect of an input variable on the output. This transparency is critical in
+chemical engineering applications, where safety, regulatory compliance, and physical plausibility are
+paramount.
+3.3 Conceptual Foundations
+3.3.1 Linear Regression
+Linear regression models the relationship between one or more independent variables 𝑋1, 𝑋2, ..., 𝑋𝑝
+and a dependent variable 𝑌 as a linear combination:
+27
+𝑌 = 𝛽 0 + 𝛽1𝑋1 + 𝛽2𝑋2 + ... + 𝛽𝑝𝑋𝑝 + 𝜀
+Where:
+• 𝛽0 is the intercept
+• 𝛽𝑖 are coefficients representing the effect of each variable
+• 𝜀 is the residual error
+Assumptions:
+• Linearity: the relationship between inputs and output is linear.
+• Independence: observations are independent.
+• Homoscedasticity: residuals have constant variance.
+• Normality: residuals are approximately normally distributed.
+• No multicollinearity among predictors.
+3.3.2 Multivariate Regression
+Chemical processes often involve multiple interacting variables. Multivariate regression accounts for
+these interactions, allowing simultaneous modeling of temperature, pressure, and composition effects.
+Correlations between input variables must be carefully interpreted to avoid confounded estimates.
+Physical interpretation example:
+A coefficient 𝛽Temp = 0.1 implies that increasing reactor temperature by 1 K increases yield by 0.1%,
+holding other variables constant.
+3.3.3 Mathematical Formulation: Ordinary Least Squares (OLS)
+OLS regression estimates coefficients 𝛽 by minimizing the sum of squared errors between predicted
+and observed outputs:
+min
+𝛽
+𝑛
+∑
+𝑖=1
+(𝑦𝑖 − ̂ 𝑦𝑖)2 = min
+𝛽
+𝑛
+∑
+𝑖=1
+(𝑦𝑖 − (𝛽0 +
+𝑝
+∑
+𝑗=1
+𝛽𝑗𝑥𝑖𝑗))
+2
+Step-by-step derivation:
+1. Represent data in matrix form:
+𝑌 = 𝑋𝛽 + 𝜀
+• 𝑌 is an 𝑛 × 1 vector of outputs
+• 𝑋 is an 𝑛 × (𝑝 + 1)matrix of predictors (including a column of ones for the intercept)
+• 𝛽 is a (𝑝 + 1) × 1vector of coefficients
+2. Define the cost function:
+28
+𝐽 (𝛽) = (𝑌 − 𝑋𝛽)𝑇(𝑌 − 𝑋𝛽)
+3. Minimize 𝐽 (𝛽)with respect to 𝛽 by setting the derivative to zero:
+𝜕𝐽
+𝜕𝛽 = −2𝑋 𝑇(𝑌 − 𝑋𝛽) = 0
+4. Solve for 𝛽:
+̂𝛽 = (𝑋𝑇𝑋)−1𝑋𝑇𝑌
+This closed-form solution is the foundation for linear regression and is implemented efficiently in
+Python libraries such as scikit-learn.
+## Python Implementation: Regression on hypothetical Reaction Yield Data
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+# Generate synthetic process data
+np.random.seed(0)
+n_samples = 100
+temperature = np.random.normal(350, 10, n_samples)
+pressure = np.random.normal(5.0, 0.5, n_samples)
+feed_conc = np.random.normal(2.0, 0.2, n_samples)
+# Nonlinear relationship for realistic behavior
+yield_percent = (
+70
++ 0.1 * (temperature - 350)
++ 2.0 * (pressure - 5.0)
+- 5.0 * (feed_conc - 2.0)**2
++ np.random.normal(0, 1.0, n_samples)
+)
+# Create DataFrame
+data = pd.DataFrame({
+"Temperature_K": temperature,
+"Pressure_bar": pressure,
+"Feed_Conc_mol_L": feed_conc,
+"Yield_percent": yield_percent
+})
+# Split data into training and test sets
+29
+X = data[["Temperature_K", "Pressure_bar", "Feed_Conc_mol_L"]]
+y = data["Yield_percent"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size =0.2, random_state =42)
+# Fit linear regression
+model = LinearRegression()
+model.fit(X_train, y_train)
+# Predict
+y_pred = model.predict(X_test)
+# Evaluate
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+model.coef_, model.intercept_, mse, r2
+(array([0.08142666, 2.30807222, 1.07932153]),
+27.472193051256895,
+1.062507184391023,
+0.7368195095705561)
+3.4 Interpretation
+• Coefficients quantify the effect of each process variable.
+• 𝑅2 indicates how well the model explains variance in reactor yield.
+• Mean squared error provides an absolute measure of predictive accuracy.
+3.5 Engineering Case Study: Predicting Heat Exchanger Performance
+3.5.1 Problem Formulation
+A heat exchanger’s outlet temperature depends on inlet temperatures, flow rates, and material
+properties. Using synthetic data, we aim to predict outlet temperature as a function of:
+• Hot stream flow rate 𝐹ℎ
+• Cold stream flow rate 𝐹𝑐
+• Inlet temperatures 𝑇in,ℎ and 𝑇in,𝑐
+# Synthetic heat exchanger data
+np.random.seed(2)
+n_samples = 80
+F_h = np.random.uniform(1.0, 5.0, n_samples) # kg/s
+F_c = np.random.uniform(1.0, 5.0, n_samples) # kg/s
+30
+T_in_h = np.random.uniform(350, 400, n_samples) # K
+T_in_c = np.random.uniform(300, 350, n_samples) # K
+# Outlet temperature (synthetic model)
+T_out_h = T_in_h - 0.1*(F_h - F_c) + 0.05*(T_in_c - 325) + np.random.normal(0, 0.5, n_samples)
+hx_data = pd.DataFrame({
+"F_h": F_h,
+"F_c": F_c,
+"T_in_h": T_in_h,
+"T_in_c": T_in_c,
+"T_out_h": T_out_h
+})
+# Regression model
+X_hx = hx_data[["F_h", "F_c", "T_in_h", "T_in_c"]]
+y_hx = hx_data["T_out_h"]
+model_hx = LinearRegression()
+model_hx.fit(X_hx, y_hx)
+# Prediction
+y_hx_pred = model_hx.predict(X_hx)
+r2_score(y_hx, y_hx_pred)
+0.9987811136397328
+3.6 Insights
+• Linear regression captures the main dependencies of outlet temperature on flow rates and
+inlet temperatures.
+• Coefficients can be interpreted physically to inform process adjustments.
+• Residuals indicate the accuracy and highlight nonlinearities if present.
+3.7 Chapter Summary
+• Regression provides a transparent framework to relate process variables to outputs.
+• Linear and multivariate regression allow engineers to quantify effects and make predictions
+with physical interpretability.
+• Ordinary least squares provides a mathematically rigorous method to estimate model coeffi-
+cients.
+• Python with NumPy, Pandas, and scikit-learn enables efficient data handling, model training,
+and evaluation.
+• Synthetic datasets demonstrate realistic chemical engineering applications, including reactor
+yields and heat exchanger performance.
+31
+• This chapter lays the foundation for classification of process stability, which will be explored
+in the next chapter (Chapter 4).
+32
+4 Chapter 4: Classification for Process Stability
+4.1 Introduction
+Chemical reactors and process units often operate under conditions that can be broadly categorized as
+stable or unstable. Stability is critical for safety, product quality, and process efficiency. Classifying
+operating regimes allows engineers to:
+• Predict when a process might deviate from safe operating limits
+• Implement preventative control strategies
+• Optimize process performance without violating operational constraints
+Machine learning classification provides a systematic framework for identifying these regimes from
+historical operating data.
+4.1.1 Importance of Classifying Operating Conditions as Stable/Unstable
+Traditional process control relies on deterministic models or expert rules to define stability limits.
+However, many modern processes are complex, nonlinear, or subject to disturbances that make
+explicit thresholds insufficient. Classification models enable:
+• Data-driven stability prediction: Automatically detect conditions leading to unsafe or
+inefficient operation.
+• Early warning systems: Trigger alarms or corrective actions before instability manifests.
+• Design insights: Identify combinations of variables most critical to stability.
+In chemical engineering, stability classification is applied to reactor temperature oscillations, con-
+centration swings, flow instabilities, and phase separation regimes.
+4.2 Conceptual Foundations
+4.2.1 Logistic Regression
+Logistic regression models the probability of a binary outcome (e.g., stable vs unstable):
+𝑃 (𝑌 = 1 ∣ 𝑋) = 1
+1 + 𝑒−(𝛽0+𝛽1𝑋1+...+𝛽𝑝𝑋𝑝)
+• 𝑌 = 1 for unstable, 𝑌 = 0 for stable
+• Coefficients 𝛽𝑖 represent the log-odds effect of each variable
+• Suitable when the relationship between predictors and log-odds is approximately linear
+33
+4.2.2 Decision Trees
+Decision trees classify data by sequentially splitting variables based on information gain or Gini
+impurity:
+• Each node represents a variable threshold
+• Leaves represent class predictions
+• Highly interpretable for process engineers, as paths correspond to operating rules
+4.2.3 Random Forests
+Random forests combine multiple decision trees to improve predictive performance:
+• Reduces overfitting inherent in single trees
+• Aggregates predictions via majority voting
+• Still interpretable using feature importance metrics
+4.2.4 Evaluation Metrics: Confusion Matrix
+A confusion matrix summarizes classification performance:
+Predicted Stable Predicted Unstable
+Actual Stable True Negative (TN) False Positive (FP)
+Actual Unstable False Negative (FN) True Positive (TP)
+Metrics derived:
+• Accuracy: 𝑇 𝑃 +𝑇 𝑁
+𝑇 𝑃 +𝑇 𝑁+𝐹 𝑃 +𝐹 𝑁
+• Precision: 𝑇 𝑃
+𝑇 𝑃 +𝐹 𝑃
+• Recall (Sensitivity): 𝑇 𝑃
+𝑇 𝑃 +𝐹 𝑁
+• F1 Score: Harmonic mean of precision and recall
+## Implementation: Synthetic Dataset of Reactor Operating Conditions
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix, classification_report
+# Generate synthetic reactor data
+np.random.seed(42)
+n_samples = 200
+34
+temperature = np.random.normal(350, 10, n_samples)
+pressure = np.random.normal(5.0, 0.5, n_samples)
+feed_conc = np.random.normal(2.0, 0.2, n_samples)
+# Define stability condition (arbitrary physical rule)
+# Unstable if temperature > 360 K or feed concentration < 1.8 mol/L
+stability = ((temperature > 360) | (feed_conc < 1.8)).astype(int) # 1 = Unstable, 0 = Stable
+# Create DataFrame
+reactor_data = pd.DataFrame({
+"Temperature_K": temperature,
+"Pressure_bar": pressure,
+"Feed_Conc_mol_L": feed_conc,
+"Stable": 1 - stability # 1 = Stable, 0 = Unstable
+})
+# Train-test split
+X = reactor_data[["Temperature_K", "Pressure_bar", "Feed_Conc_mol_L"]]
+y = reactor_data["Stable"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size =0.2, random_state =42)
+#Logistic Regression
+# Logistic regression
+log_model = LogisticRegression()
+log_model.fit(X_train, y_train)
+y_pred_log = log_model.predict(X_test)
+# Evaluation
+conf_matrix_log = confusion_matrix(y_test, y_pred_log)
+report_log = classification_report(y_test, y_pred_log)
+conf_matrix_log, report_log
+(array([[ 4, 3],
+[ 1, 32]], dtype=int64),
+' precision recall f1-score support\n\n 0 0.80 0.57 0.67 7\n 1 0.91 0.97 0.94 33\n\n accuracy 0.90 40\n macro avg 0.86 0.77 0.80 40\nweighted avg 0.89 0.90 0.89 40\n')
+Interpretation:
+Each coefficient indicates the effect of a process variable on the probability of stability.
+Confusion matrix highlights how many stable and unstable points were correctly classified.
+# Decision Tree Classification
+tree_model = DecisionTreeClassifier(max_depth=3, random_state =42)
+tree_model.fit(X_train, y_train)
+y_pred_tree = tree_model.predict(X_test)
+35
+conf_matrix_tree = confusion_matrix(y_test, y_pred_tree)
+report_tree = classification_report(y_test, y_pred_tree)
+conf_matrix_tree, report_tree
+(array([[ 7, 0],
+[ 0, 33]], dtype=int64),
+' precision recall f1-score support\n\n 0 1.00 1.00 1.00 7\n 1 1.00 1.00 1.00 33\n\n accuracy 1.00 40\n macro avg 1.00 1.00 1.00 40\nweighted avg 1.00 1.00 1.00 40\n')
+Insights:
+• Tree structure can be visualized to extract if-then rules, e.g., “If temperature > 358 K and
+feed < 1.85 → Unstable” .
+• Highly interpretable for process engineers.
+# Random forest
+rf_model = RandomForestClassifier(n_estimators=100, random_state =42)
+rf_model.fit(X_train, y_train)
+y_pred_rf = rf_model.predict(X_test)
+conf_matrix_rf = confusion_matrix(y_test, y_pred_rf)
+report_rf = classification_report(y_test, y_pred_rf)
+conf_matrix_rf, report_rf
+(array([[ 7, 0],
+[ 0, 33]], dtype=int64),
+' precision recall f1-score support\n\n 0 1.00 1.00 1.00 7\n 1 1.00 1.00 1.00 33\n\n accuracy 1.00 40\n macro avg 1.00 1.00 1.00 40\nweighted avg 1.00 1.00 1.00 40\n')
+Insights:
+• Ensemble reduces overfitting compared to a single decision tree
+• Feature importance identifies which variables most affect stability
+# Feature importance
+import matplotlib.pyplot as plt
+importance = rf_model.feature_importances_
+plt.bar(X.columns, importance)
+plt.ylabel("Importance")
+plt.title("Feature Importance for Reactor Stability" )
+plt.show()
+36
+4.3 Engineering Case Study: Classifying Stable vs Unstable Chemical
+Reactors
+Scenario:
+A continuous stirred-tank reactor (CSTR) exhibits oscillations at high temperatures or low feed
+concentrations. Historical data from the plant are synthesized as above.
+Steps:
+• Data generation: Representative of plant conditions
+• Model selection: Logistic regression for interpretability; random forest for predictive accuracy
+• Evaluation: Confusion matrix and classification report
+• Interpretation: Identify safe operating regions and critical variables
+• Outcome: Engineers can use ML classification to implement:
+– Preventive alarms if temperature or feed deviates into unstable regimes
+– Operational guidelines for robust reactor performance
+– Variable prioritization based on feature importance
+4.4 Chapter Summary
+• Stability classification is vital for safe and efficient process operation.
+37
+• Logistic regression provides interpretable probabilities; decision trees offer rule-based classifi-
+cation; random forests improve predictive performance.
+• Confusion matrices, precision, recall, and F1 scores quantify model reliability.
+• Synthetic reactor datasets illustrate how ML identifies stable vs unstable regimes.
+• This chapter prepares the foundation for unsupervised learning and clustering, where process
+patterns are discovered without predefined labels.
+38
+5 Chapter 5: Clustering Process Conditions
+5.1 Introduction
+Chemical engineering systems generate high-dimensional operating data from sensors, analyzers, and
+control systems. Unlike regression or classification problems, many engineering tasks arise when no
+explicit output variable is defined. The objective is to understand how operating conditions organize
+themselves, whether distinct regimes exist, and how these regimes relate to process performance
+and stability.
+Clustering provides a mathematical framework to address these questions by grouping observations
+according to similarity in multivariable space. In chemical engineering, clustering is primarily an
+exploratory and diagnostic tool, supporting operating regime identification, process monitoring, and
+early fault detection. Importantly, clustering complements first-principles modeling by revealing
+structure that may not be apparent through mechanistic analysis alone.
+5.2 Use of Clustering to Identify Patterns in Multivariable Process Data
+Process data typically consist of simultaneous measurements of temperatures, pressures, flow rates,
+and compositions. These variables are often correlated through material and energy balances,
+transport phenomena, and control actions. Consequently, patterns in process behavior are inherently
+multivariate.
+Clustering enables engineers to identify groups of operating points that are similar across all variables.
+Such patterns may correspond to:
+• Distinct throughput levels
+• Energy-efficient versus energy-intensive operation
+• Stable steady states versus transitional regimes
+From an engineering perspective, clustering is valuable because it operates directly on measured
+data without requiring explicit assumptions about underlying kinetics or transport mechanisms.
+However, the resulting clusters must always be interpreted through physical reasoning and process
+constraints.
+39
+5.3 Conceptual Foundations
+Clustering algorithms represent each operating condition as a point in a multidimensional feature
+space. Let an operating dataset consist of (𝑛)observations, each described by (𝑝)process variables.
+The data matrix can be written as:
+X =
+⎡
+⎢⎢
+⎣
+𝑥11 𝑥12 ⋯ 𝑥 1𝑝
+𝑥21 𝑥22 ⋯ 𝑥 2𝑝
+⋮ ⋮ ⋱ ⋮
+𝑥𝑛1 𝑥𝑛2 ⋯ 𝑥 𝑛𝑝
+⎤
+⎥⎥
+⎦
+Each row corresponds to one operating condition, and similarity between observations is typically
+quantified using a distance metric, most commonly the Euclidean distance. Prior to clustering,
+variables must be scaled to ensure that no single measurement dominates the distance calculation
+due to units or magnitude.
+5.4 K-Means, Hierarchical Clustering, and Silhouette Score
+5.4.1 K-Means Clustering
+K-Means partitions the dataset into (K) clusters by minimizing the within-cluster sum of squared
+distances:
+min
+{𝐶𝑘}
+𝐾
+∑
+𝑘=1
+∑
+x𝑖∈𝐶𝑘
+‖x𝑖 − 𝜇𝑘‖2
+where (𝐶𝑘) is the set of points in cluster (𝑘)and (𝜇𝑘) is the centroid of that cluster. In process
+terms, each centroid represents a typical operating condition for that regime.
+5.4.2 Hierarchical Clustering
+Hierarchical clustering constructs clusters through successive merging or splitting based on inter-
+point distances. In agglomerative hierarchical clustering, each observation starts as its own cluster,
+and clusters merge according to a linkage criterion (single, complete, or average linkage). This
+approach is useful when the number of operating regimes is unknown a priori .
+40
+5.4.3 Silhouette Score
+The silhouette coefficient for observation (𝑖)measures clustering quality:
+𝑠𝑖 = 𝑏𝑖 − 𝑎𝑖
+max(𝑎𝑖, 𝑏𝑖)
+where (𝑎𝑖) is the average distance between observation (𝑏𝑖) and all other points in its cluster, and
+(𝑏𝑖) is the minimum average distance between (𝑖)and points in other clusters. From an engineering
+standpoint, high (𝑠𝑖) indicates well-separated operating regimes, while low (𝑠𝑖) suggests overlapping
+or poorly defined regimes.
+5.5 Physical Interpretation of Clusters in Process Engineering
+Clusters obtained from process data are mathematical constructs and do not inherently correspond
+to physical states. Engineering interpretation is essential. Cluster centroids can be examined to
+identify representative temperatures, pressures, flow rates, and compositions.
+• A cluster with high temperatures and flow rates may correspond to high-throughput operation.
+• A cluster with moderate temperatures and flow rates may indicate energy-efficient steady-state
+operation.
+• Dispersed clusters with low silhouette scores may reflect transitional or unstable regimes.
+Clustering serves as a bridge between raw data and engineering insight, enabling hypothesis
+generation rather than direct causal inference.
+5.6 Python Implementation
+5.6.1 Clustering Feed Compositions and Operational Regimes
+We now apply clustering to hypothetical data representing feed composition and operating conditions
+within a separation process. The data are generated to reflect physically reasonable operating ranges
+and process variability.
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import silhouette_score
+np.random.seed(42)
+41
+n_samples = 300
+temperature = np.random.normal(360, 12, n_samples) # K
+pressure = np.random.normal(18, 2.5, n_samples) # bar
+flow_rate = np.random.normal(120, 15, n_samples) # kmol/h
+feed_fraction = np.random.uniform(0.3, 0.9, n_samples) # mole fraction
+data = pd.DataFrame({
+"Temperature": temperature,
+"Pressure": pressure,
+"FlowRate": flow_rate,
+"FeedFraction": feed_fraction
+})
+data.head()
+Temperature Pressure FlowRate FeedFraction
+0 365.960570 15.927512 131.354829 0.396456
+1 358.340828 16.599547 106.167520 0.790780
+2 367.772262 19.868234 133.044089 0.799281
+3 378.276358 19.525926 140.334568 0.604481
+4 357.190160 17.947746 126.201524 0.303832
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(data)
+kmeans = KMeans(n_clusters=3, random_state =42)
+clusters = kmeans.fit_predict(scaled_data)
+data["Cluster"] = clusters
+silhouette_score(scaled_data, clusters)
+0.1583856508707817
+plt.figure()
+for c in sorted(data["Cluster"].unique()):
+subset = data[data["Cluster"] == c]
+plt.scatter(
+subset["Temperature"],
+subset["FlowRate"],
+label=f"Cluster {c}",
+alpha=0.7
+)
+42
+plt.xlabel("Temperature (K)" )
+plt.ylabel("Flow Rate (kmol/h)" )
+plt.title("Clustering of Feed and Operating Conditions" )
+plt.legend()
+plt.show()
+5.7 Engineering Case Study: Identifying Operating Regimes in a
+Distillation Process Using Synthetic Data
+In a distillation column, operating regimes are influenced by feed composition, throughput, and
+thermal conditions. Identifying these regimes is critical for maintaining separation efficiency and
+avoiding flooding or weeping.
+By clustering operating data, distinct regimes emerge that correspond to combinations of feed
+fraction, flow rate, and temperature. Examination of cluster centroids allows engineers to associate
+each regime with energy consumption levels and separation performance. Clusters with high internal
+variability may indicate unstable operation or frequent transitions caused by disturbances or control
+actions.
+This analysis does not replace detailed column modeling but provides a data-driven overview that
+supports monitoring and operational decision-making.
+43
+5.8 Chapter Summary
+This chapter presented clustering as an unsupervised learning technique for identifying structure in
+multivariable process data. The mathematical foundations of K-Means and hierarchical clustering
+were introduced, along with the silhouette score as a measure of cluster quality. Through a synthetic
+distillation process example, clustering was shown to reveal physically meaningful operating regimes,
+reinforcing its role as an exploratory and diagnostic tool in chemical engineering practice.
+44
+6 Chapter 6: Dimensionality Reduction and
+Principal Component Analysis (PCA)
+6.1 Introduction
+High-dimensional process data are increasingly common in chemical engineering due to the prolifer-
+ation of sensors, analyzers, and advanced process control systems. While large datasets enable more
+detailed monitoring and analysis, they also introduce challenges:
+• Computational inefficiency when working with many correlated variables
+• Difficulty in visualizing relationships in more than three dimensions
+• Risk of overfitting in predictive models
+Dimensionality reduction provides a solution by transforming high-dimensional data into a smaller set
+of variables that capture the essential variation while discarding redundancy. Principal Component
+Analysis (PCA) is the most widely used technique for this purpose.
+6.1.1 Motivation: Dealing with High-Dimensional Process Data
+In chemical processes, multiple measurements such as temperatures, pressures, flow rates, composi-
+tions, and sensor readings often exhibit strong correlations due to underlying physical laws:
+• Material and energy balances link flow rates, concentrations, and temperatures
+• Sensor arrays measuring the same process variable may have redundant readings
+• Process control loops introduce dependencies among variables
+Analyzing such datasets directly is challenging:
+• Multicollinearity can distort regression or classification models
+• Visualization becomes impractical beyond three dimensions
+• Computational cost rises with the number of variables
+PCA addresses these issues by constructing orthogonal linear combinations of the original variables
+that capture the maximum variance in the data. These combinations, called principal components,
+reduce dimensionality while preserving as much information as possible.
+45
+6.2 Conceptual Foundations
+PCA seeks a set of new variables 𝑧1, 𝑧2, … , 𝑧𝑚 such that: 1. each 𝑧𝑖 is a linear combination of the
+original variables:
+𝑧𝑖 = w⊤
+𝑖 x = 𝑤 𝑖1𝑥1 + 𝑤𝑖2𝑥2 + ⋯ + 𝑤𝑖𝑝𝑥𝑝
+2. The first principal component 𝑧1 captures the maximum variance in the dataset.
+3. Each subsequent component captures the maximum remaining variance while being orthogonal
+to all previous components.
+This orthogonality ensures that principal components are uncorrelated, addressing multicollinearity
+and redundancy in process datasets.
+The proportion of total variance explained by each component quantifies how much of the dataset’s
+information is retained:
+Variance Explained = Variance of component
+Total variance of all variables
+By selecting the first few components that explain most of the variance, engineers can reduce the
+number of variables while retaining meaningful process information.
+6.3 Mathematical Formulation
+Let X ∈ ℝ 𝑛×𝑝 denote a matrix of 𝑛 observations and 𝑝 standardized process variables. The steps of
+PCA are:
+1. Standardization: Subtract the mean and scale each variable to unit variance.
+𝑋scaled
+𝑖𝑗 = 𝑋𝑖𝑗 − ̄𝑋𝑗
+𝜎𝑗
+2. Covariance Matrix Calculation :
+C = 1
+𝑛 − 1 X⊤X
+Each entry 𝐶𝑖𝑗 represents the covariance between variables 𝑖 and 𝑗.
+3. Eigenvalue Decomposition : Solve
+Cw𝑖 = 𝜆 𝑖w𝑖
+where 𝜆𝑖 is the variance explained by principal component 𝑖, and w𝑖 is the corresponding eigenvector
+defining the linear combination.
+46
+4. Projection onto Principal Components :
+Z = XW
+where Z contains the principal component scores for each observation, and W is the matrix of
+eigenvectors.
+The eigenvectors with the largest eigenvalues define the principal components that capture the
+most variance. The cumulative explained variance guides the selection of how many components to
+retain.
+6.4 Python Implementation
+6.4.1 PCA on Synthetic Multivariable Process Dataset
+We create a synthetic dataset simulating correlated sensor readings from a chemical reactor. The
+dataset contains temperature, pressure, flow rate, and concentration measurements with physically
+realistic correlations.
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+np.random.seed(42)
+n_samples = 250
+# Synthetic correlated process variables
+temperature = np.random.normal(350, 10, n_samples)
+pressure = 5 + 0.02 * temperature + np.random.normal(0, 0.5, n_samples)
+flow_rate = 100 + 0.1 * temperature + np.random.normal(0, 5, n_samples)
+concentration = np.random.uniform(0.5, 1.5, n_samples)
+data = pd.DataFrame({
+"Temperature": temperature,
+"Pressure": pressure,
+"FlowRate": flow_rate,
+"Concentration": concentration
+})
+data.head()
+47
+Temperature Pressure FlowRate Concentration
+0 354.967142 11.468901 140.127602 0.788694
+1 348.617357 12.431278 144.408819 0.855673
+2 356.476885 13.190616 128.654851 1.219046
+3 365.230299 12.820839 139.337876 0.797122
+4 347.658466 11.193484 131.512634 1.066405
+# Standardize data
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(data)
+# Apply PCA
+pca = PCA()
+principal_components = pca.fit_transform(scaled_data)
+# Variance explained by each component
+explained_variance = pca.explained_variance_ratio_
+explained_variance
+array([0.36804611, 0.26566817, 0.20840837, 0.15787735])
+# Scree plot to visualize variance explained
+plt.figure()
+plt.plot(np.cumsum(explained_variance)*100, marker ='o')
+plt.xlabel("Number of Principal Components" )
+plt.ylabel("Cumulative Variance Explained (%)" )
+plt.title("PCA Scree Plot" )
+plt.grid(True)
+plt.show()
+48
+6.5 Engineering Case Study
+6.5.1 Reducing Dimensionality of Sensor Data from a Chemical Reactor
+Consider a continuous stirred-tank reactor (CSTR) monitored by multiple temperature, pressure, flow,
+and concentration sensors. Redundant and correlated measurements increase data dimensionality
+without providing new information.
+PCA enables engineers to:
+• Reduce the number of input variables for downstream modeling (e.g., regression or control)
+• Identify dominant modes of process variability
+• Visualize high-dimensional process behavior in 2–3 principal component space
+In our synthetic example, the first two principal components capture over 90% of the total variance.
+Projecting the original sensor readings onto these components simplifies visualization and highlights
+patterns in operating conditions, such as periods of high throughput or temperature excursions.
+49
+6.6 Chapter Summary
+This chapter introduced Principal Component Analysis (PCA) as a method for dimensionality
+reduction in high-dimensional chemical engineering datasets. The mathematical formulation,
+including covariance matrices, eigenvalues, and eigenvectors, was presented with step-by-step
+derivation. Through synthetic reactor sensor data, PCA demonstrated its ability to identify
+dominant modes of variability, reduce data dimensionality, and support subsequent modeling and
+visualization efforts. By focusing on physically meaningful components, engineers can simplify
+complex datasets while preserving essential process information.
+50
+7 Chapter 7: Neural Networks for Process
+Modeling
+7.1 Introduction
+Many chemical engineering processes exhibit strong nonlinear behavior arising from reaction kinetics,
+phase equilibria, transport phenomena, and control interactions. While linear and mildly nonlinear
+regression models are effective within limited operating ranges, they often fail to capture complex
+input–output relationships over broader conditions.
+Neural networks provide a flexible, data-driven modeling framework capable of approximating
+highly nonlinear mappings between process inputs and outputs. Rather than imposing a predefined
+functional form, neural networks learn relationships directly from data, making them particularly
+suitable for systems where first-principles models are incomplete, computationally expensive, or
+difficult to calibrate.
+This chapter introduces neural networks from a process modeling perspective, emphasizing their
+structure, mathematical foundations, and physical interpretation rather than algorithmic abstrac-
+tion.
+7.2 Why Neural Networks Are Useful in Nonlinear Process Systems
+Nonlinearity is intrinsic to chemical engineering systems. Examples include:
+• Exponential temperature dependence of reaction rates
+• Nonlinear vapor–liquid equilibrium relationships
+• Coupled mass and energy balances in reactors
+• Saturation and dead-zone effects in actuators and sensors
+Traditional modeling approaches address these nonlinearities through detailed mechanistic models,
+which require extensive physical knowledge and parameter estimation. Neural networks offer
+an alternative by learning nonlinear relationships directly from data, provided sufficient and
+representative operating data are available.
+From an engineering standpoint, neural networks are particularly useful when:
+• The governing physics are partially known but difficult to model explicitly
+• The system operates over multiple regimes
+• Fast predictions are required for monitoring or control
+However, neural networks sacrifice interpretability for flexibility, making careful validation and
+engineering judgment essential.
+51
+7.3 Conceptual Foundations
+Neural networks are composed of simple computational units arranged in layers. Each unit performs
+a weighted sum of its inputs followed by a nonlinear transformation. By stacking such units, neural
+networks can approximate complex nonlinear functions.
+The key idea is function approximation: neural networks aim to approximate an unknown mapping
+𝑦 = 𝑓(𝑥)
+where (𝑥)represents process inputs and (𝑦)represents outputs of interest.
+7.4 Perceptrons, Activation Functions, Feedforward Networks
+The perceptron is the fundamental building block of a neural network. Given an input vector 𝑥 ∈ ℝ 𝑝,
+the perceptron computes:
+𝑧 = w⊤𝑥 + 𝑏
+where (𝑤)is a vector of weights and (𝑏)is a bias term. The output is then obtained by applying an
+activation function 𝜙(⋅):
+𝑎 = 𝜙(𝑧)
+Common activation functions include the rectified linear unit (ReLU), sigmoid, and hyperbolic
+tangent. These nonlinear functions enable the network to model nonlinear process behavior.
+A feedforward neural network consists of multiple layers of perceptrons arranged such that information
+flows from input to output without feedback. In process modeling, feedforward networks are
+commonly used to map steady-state or quasi-steady-state operating conditions to outputs such as
+yield, temperature, or conversion.
+7.5 Mathematical Formulation
+7.5.1 Forward Propagation, Loss Functions, Gradient Descent
+Consider a feedforward neural network with one hidden layer. For an input vector (𝑥), the hidden
+layer computes:
+ℎ = 𝜙(𝑊1𝑥 + 𝑏1)
+The output layer then computes:
+52
+̂ 𝑦 = 𝑊2ℎ + 𝑏2
+where (𝑊1, 𝑊2) and (𝑏1, 𝑏2) are weight matrices and bias vectors.
+The discrepancy between predicted output ( ̂ 𝑦)and true output (𝑦)is quantified using a loss function,
+commonly the mean squared error for regression problems:
+𝐿 = 1
+𝑛
+𝑛
+∑
+𝑖=1
+‖𝑦𝑖 − ̂ 𝑦𝑖‖2
+Training a neural network consists of minimizing this loss with respect to the weights and biases.
+This is achieved through gradient descent, where parameters are iteratively updated in the direction
+of decreasing loss:
+𝜃(𝑘+1) = 𝜃 (𝑘) − 𝜂∇𝜃𝐿
+Here, (𝜂)is the learning rate, and gradients are computed efficiently using backpropagation.
+7.6 Python Implementation
+7.6.1 Neural Network for Predicting Nonlinear Process Outputs Using TensorFlow
+We now construct a neural network to predict a nonlinear process output from multiple input
+variables. The synthetic dataset represents a nonlinear reaction system with temperature, residence
+time, and feed concentration as inputs.
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+import tensorflow as tf
+np.random.seed(42)
+tf.random.set_seed(42)
+n_samples = 300
+temperature = np.random.normal(360, 15, n_samples)
+res_time = np.random.normal(4, 0.8, n_samples)
+concentration = np.random.uniform(0.5, 1.5, n_samples)
+# Nonlinear synthetic process output
+yield_reaction = (
+0.03 * temperature
+53
++ 5.0 * np.log(res_time)
++ 10.0 * np.sin(concentration)
++ np.random.normal(0, 3, n_samples)
+)
+data = pd.DataFrame({
+"Temperature": temperature,
+"ResidenceTime": res_time,
+"Concentration": concentration,
+"Yield": yield_reaction
+})
+X = data.drop(columns="Yield")
+y = data["Yield"]
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+X_train, X_test, y_train, y_test = train_test_split(
+X_scaled, y, test_size =0.2, random_state =42
+)
+model = tf.keras.Sequential([
+tf.keras.layers.Dense(16, activation ="relu", input_shape =(X_train.shape[1],)),
+tf.keras.layers.Dense(16, activation ="relu"),
+tf.keras.layers.Dense(1)
+])
+model.compile(
+optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
+loss="mse"
+)
+history = model.fit(
+X_train, y_train,
+validation_split=0.2,
+epochs=100,
+verbose=0
+)
+y_pred = model.predict(X_test).flatten()
+plt.figure()
+plt.scatter(y_test, y_pred)
+plt.xlabel("Actual Yield" )
+plt.ylabel("Predicted Yield" )
+plt.title("Neural Network Prediction Performance" )
+plt.show()
+54
+C:\Users\bin-g\AppData\Local\Programs\Python\Python310\lib\site-packages\keras\src\layers\core\dense.py:87: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+2/2 �������������������� 0s 80ms/step
+7.7 Engineering Case Study
+7.7.1 Modeling a Nonlinear CSTR Process with Multiple Inputs and Outputs
+Consider a continuous stirred-tank reactor (CSTR) operating under non-isothermal conditions. The
+reactor behavior depends nonlinearly on feed concentration, inlet temperature, residence time, and
+heat removal rate. Developing a full mechanistic model requires detailed kinetics and heat-transfer
+parameters that may be uncertain or time-varying.
+A neural network trained on historical operating data can learn the nonlinear mapping between
+operating conditions and key outputs such as conversion and outlet temperature. While the model
+does not encode physical laws explicitly, it can provide accurate predictions within the observed
+operating envelope.
+From an engineering perspective, such a model is useful for real-time monitoring and what-if analysis.
+However, it must be carefully validated, monitored for drift, and constrained to avoid extrapolation
+beyond safe operating conditions.
+55
+7.8 Chapter Summary
+This chapter introduced neural networks as flexible nonlinear models for chemical process systems.
+The conceptual structure of perceptrons and feedforward networks was explained, followed by a
+mathematical formulation of forward propagation, loss functions, and gradient-based optimization.
+A synthetic nonlinear reaction system illustrated neural network implementation, and a CSTR case
+study demonstrated their practical relevance. Neural networks offer powerful modeling capabilities,
+but their use in chemical engineering requires careful validation and physical interpretation.
+56
+8 Chapter 8: Time Series Modeling in Process
+Engineering
+8.1 Introduction
+Chemical processes are inherently dynamic. Unlike static datasets where observations are indepen-
+dent, process data are often collected as time-ordered sequences in which current system behavior
+depends on its past states. Examples include temperature evolution in reactors, composition changes
+in distillation columns, pressure fluctuations in pipelines, and concentration profiles in biochemical
+processes.
+Ignoring temporal dependence can lead to misleading models, poor predictions, and unsafe control
+decisions. Time series modeling provides a mathematical and computational framework for capturing
+system dynamics, forecasting future behavior, and supporting monitoring, control, and optimization
+tasks in chemical engineering.
+This chapter introduces time series modeling techniques commonly applied in process engineering,
+ranging from classical statistical models to modern neural network–based approaches.
+8.2 Conceptual Foundations
+8.2.1 Nature of Time-Dependent Process Data
+A time series is a sequence of observations indexed by time:
+{𝑥𝑡}𝑇
+𝑡=1
+where 𝑥𝑡 represents a measured process variable at time 𝑡. In chemical processes, time dependence
+arises due to:
+• Material and energy accumulation
+• Transport delays
+• Reaction kinetics
+• Control system feedback
+Key characteristics of process time series include autocorrelation, trends, seasonality, and nonlinear-
+ity.
+57
+8.2.2 Autoregressive and Moving Average Models (ARIMA)
+ARIMA models describe time series behavior using linear dependence on past observations and past
+prediction errors.
+An autoregressive model of order 𝑝 (AR) is defined as:
+𝑥𝑡 = 𝑐 +
+𝑝
+∑
+𝑖=1
+𝜙𝑖𝑥𝑡−𝑖 + 𝜀𝑡
+where:
+• 𝜙𝑖 are autoregressive coefficients
+• 𝜀𝑡 is white noise
+A moving average model of order 𝑞 (MA) is:
+𝑥𝑡 = 𝜇 +
+𝑞
+∑
+𝑗=1
+𝜃𝑗𝜀𝑡−𝑗 + 𝜀𝑡
+The ARIMA (𝑝, 𝑑, 𝑞)model combines:
+• Autoregression (AR)
+• Differencing of order 𝑑 to enforce stationarity
+• Moving average (MA)
+ARIMA models are widely used in process monitoring and short-term forecasting when system
+behavior is approximately linear.
+8.2.3 Recurrent Neural Networks and LSTM Models
+Many chemical processes exhibit strong nonlinearity and long-term dependencies that linear models
+cannot capture. Recurrent Neural Networks (RNNs) address this limitation by explicitly modeling
+temporal feedback.
+An RNN updates its hidden state according to:
+ℎ𝑡 = 𝑓(𝑊ℎℎ𝑡−1 + 𝑊𝑥𝑥𝑡 + 𝑏)
+where:
+• ℎ𝑡 is the hidden state
+• 𝑓(⋅)is a nonlinear activation function
+58
+However, standard RNNs suffer from vanishing gradients. Long Short-Term Memory (LSTM)
+networks overcome this by introducing gated memory cells that regulate information flow over time,
+making them well suited for complex process dynamics.
+8.3 Python Implementation
+8.3.1 Predicting Process Variable Evolution Over Time
+We illustrate time series modeling using a hypothetical temperature signal representative of a
+continuous chemical process.
+import numpy as np
+import matplotlib.pyplot as plt
+np.random.seed(42)
+time = np.arange(0, 200)
+temperature = 350 + 5 * np.sin(0.1 * time) + np.random.normal(0, 0.5, size =len(time))
+plt.plot(time, temperature)
+plt.xlabel("Time")
+plt.ylabel("Temperature (K)" )
+plt.title("hypothetical Process Temperature Time Series" )
+plt.show()
+59
+from statsmodels.tsa.arima.model import ARIMA
+model = ARIMA(temperature, order =(2, 1, 2))
+model_fit = model.fit()
+forecast = model_fit.forecast(steps=20)
+plt.plot(time, temperature, label ="Observed")
+plt.plot(np.arange(200, 220), forecast, label ="Forecast")
+plt.legend()
+plt.xlabel("Time")
+plt.ylabel("Temperature (K)" )
+plt.show()
+C:\Users\bin-g\AppData\Local\Programs\Python\Python310\lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+warnings.warn("Maximum Likelihood optimization failed to "
+60
+This approach captures short-term dynamics effectively when the process operates near steady
+conditions.
+8.4 Engineering Case Study
+8.4.1 Forecasting Temperature and Concentration Profiles in a Continuous Reactor
+Consider a continuous stirred-tank reactor (CSTR) where temperature and concentration evolve due
+to reaction kinetics and heat exchange. Accurate forecasting is essential for safety and control.
+8.5 Chapter Summary
+Time series modeling is essential for understanding and predicting the dynamic behavior of chemical
+processes. This chapter introduced:
+• The nature of time-dependent process data.
+• Classical ARIMA models for linear dynamic systems.
+• Recurrent neural networks and LSTM architectures for nonlinear dynamics.
+• Practical implementation of time series forecasting in Python.
+61
+• A reactor-based case study illustrating engineering relevance.
+In the next chapter, we extend these ideas to Model Validation, Uncertainty, and Interpretability.
+62
+9 Chapter 9: Model Validation, Uncertainty, and
+Interpretability
+9.1 Introduction
+Machine learning models are increasingly used to support decision-making in chemical engineering
+applications, including process optimization, fault detection, and yield prediction. However, a
+model that performs well on historical data does not necessarily provide reliable predictions in real
+operating conditions.
+Model validation and uncertainty quantification are therefore critical. In chemical processes, incorrect
+predictions can lead to unsafe operation, economic losses, or regulatory non-compliance. In addition,
+engineers must be able to understand why a model makes a certain prediction, particularly when
+models are used to guide operational or design decisions.
+This chapter introduces the principles of model validation, uncertainty assessment, and interpretabil-
+ity, emphasizing their importance in trustworthy and deployable machine learning models for
+chemical engineering.
+9.2 Conceptual Foundations
+9.2.1 Overfitting and Underfitting
+A fundamental challenge in model development is balancing model complexity and generalization.
+• Underfitting occurs when a model is too simple to capture the underlying relationship
+between inputs and outputs.
+• Overfitting occurs when a model fits noise in the training data rather than the true process
+behavior.
+Mathematically, the expected prediction error can be decomposed into bias and variance:
+𝐸[(𝑦 − ̂ 𝑦)2] = 𝐵𝑖𝑎𝑠 2 + 𝑉 𝑎𝑟𝑖𝑎𝑛𝑐𝑒 + 𝑁 𝑜𝑖𝑠𝑒
+Chemical engineering datasets often contain noise from sensors, disturbances, and unmeasured
+variables, making overfitting a serious concern.
+63
+9.2.2 Cross-Validation
+Cross-validation provides a systematic way to estimate a model’s ability to generalize to unseen
+data.
+In 𝑘-fold cross-validation, the dataset is divided into 𝑘 subsets. The model is trained on 𝑘 − 1 folds
+and evaluated on the remaining fold. This process is repeated 𝑘 times, and performance metrics are
+averaged:
+𝐶𝑉 𝐸𝑟𝑟𝑜𝑟 = 1
+𝑘
+𝑘
+∑
+𝑖=1
+𝐸𝑖
+where 𝐸𝑖 is the error on the 𝑖-th validation fold.
+Cross-validation is particularly important in chemical engineering, where datasets may be small or
+expensive to generate.
+9.2.3 Model Interpretability
+Interpretability refers to the ability to explain how input variables influence model predictions.
+Interpretability is critical in process engineering because:
+• Models must align with physical intuition.
+• Engineers need to verify that predictions are physically reasonable.
+• Regulatory and safety requirements demand transparency.
+Common interpretability approaches include:
+• Feature importance analysis
+• Partial dependence plots
+• Sensitivity analysis
+Interpretable models allow engineers to assess whether a model has learned meaningful process
+relationships or spurious correlations.
+9.3 Python Implementation
+9.3.1 Evaluating Regression and Classification Models
+We demonstrate validation techniques using synthetic process data.
+64
+import numpy as np
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.metrics import mean_squared_error, accuracy_score
+## Regression Model Validation
+np.random.seed(0)
+X = np.random.rand(200, 3)
+y = 10 + 5*X[:,0] - 3*X[:,1] + np.random.normal(0, 0.5, size =200)
+model = LinearRegression()
+cv_mse = -cross_val_score(
+model, X, y, cv =5, scoring ="neg_mean_squared_error"
+)
+cv_mse.mean()
+0.2569785817465236
+Cross-validation provides a robust estimate of prediction error, reducing reliance on a single train–test
+split.
+# Classification Model Validation
+X_class = np.random.rand(200, 2)
+y_class = (X_class[:,0] + X_class[:,1] > 1).astype(int)
+clf = LogisticRegression()
+clf.fit(X_class, y_class)
+y_pred = clf.predict(X_class)
+accuracy_score(y_class, y_pred)
+0.965
+For classification tasks, accuracy, precision, recall, and confusion matrices should be evaluated
+together to avoid misleading conclusions.
+9.4 Engineering Case Study
+9.4.1 Quantifying Uncertainty in Predicted Reactor Yields
+Consider a reactor where product yield depends on temperature, residence time, and feed composition.
+A regression model is trained to predict yield, but engineers must understand the confidence in
+65
+these predictions.
+After fitting a regression model, uncertainty can be assessed by analyzing prediction residuals and
+their variance:
+𝜎2 = 1
+𝑁
+𝑁
+∑
+𝑖=1
+(𝑦𝑖 − ̂ 𝑦𝑖)2
+Higher uncertainty may indicate:
+• Insufficient data in certain operating regions
+• Missing input variables
+• Regime changes in process behavior
+Quantifying uncertainty allows engineers to:
+• Define safety margins
+• Identify unreliable predictions
+• Prioritize additional data collection
+9.5 Chapter Summary
+This chapter emphasized the importance of validating and interpreting machine learning models in
+chemical engineering applications. Key topics included:
+• The risks of overfitting and underfitting
+• Cross-validation as a robust performance evaluation tool
+• The need for interpretability in engineering decision-making
+• Practical validation of regression and classification models
+• Quantifying uncertainty in reactor yield predictions
+Robust validation and transparent models are essential for deploying machine learning safely and
+effectively in real chemical processes.
+66
+10 Chapter 10: Integrating Machine Learning
+into Chemical Engineering Practice
+10.1 Introduction
+Machine learning models achieve their true value only when they are successfully integrated into real
+chemical engineering workflows. While previous chapters focused on model development, validation,
+and interpretation, practical deployment introduces additional challenges that are often overlooked
+in purely academic treatments.
+Chemical processes operate continuously, under changing conditions, and within strict safety and
+economic constraints. Models must therefore be reliable, maintainable, and aligned with engineering
+judgment. This chapter bridges the gap between theoretical model development and real-world
+chemical engineering practice, emphasizing how machine learning models are deployed, monitored,
+and maintained over their operational lifetime.
+10.2 Conceptual Foundations
+10.2.1 Deployment Strategies for Machine Learning Models
+Deployment refers to the process of embedding a trained machine learning model into an operational
+environment where it can generate predictions using live or periodically updated data.
+From an engineering perspective, deployment strategies typically fall into three categories:
+1- Offline decision support
+2- Online advisory systems
+3- Closed-loop integration
+In offline decision support, models are used for scenario analysis, optimization studies, or planning
+tasks. Predictions do not directly affect process operation but inform engineering decisions.
+Online advisory systems provide real-time predictions or recommendations to operators. The final
+decision remains with human experts, preserving a safety layer between the model and the process.
+Closed-loop integration embeds the model directly into control or optimization algorithms. This
+approach requires extensive validation, redundancy, and safeguards due to its direct impact on
+process behavior.
+67
+10.2.2 Monitoring Model Performance
+Once deployed, a machine learning model must be continuously monitored to ensure its predictions
+remain accurate and physically meaningful.
+Key performance indicators include:
+• Prediction error metrics over time
+• Distribution shifts in input variables
+• Frequency of extrapolation beyond training data
+In chemical processes, changes in catalyst activity, feedstock quality, equipment fouling, or sensor
+calibration can cause data drift, leading to degraded model performance.
+Mathematically, data drift can be detected by comparing statistical properties of input variables:
+Δ𝜇 = 𝜇 𝑐𝑢𝑟𝑟𝑒𝑛𝑡 − 𝜇𝑡𝑟𝑎𝑖𝑛𝑖𝑛𝑔
+Δ𝜎2 = 𝜎 2
+𝑐𝑢𝑟𝑟𝑒𝑛𝑡 − 𝜎2
+𝑡𝑟𝑎𝑖𝑛𝑖𝑛𝑔
+Significant deviations may indicate that the model is being used outside its valid operating envelope.
+10.2.3 Model Maintenance and Lifecycle Management
+Machine learning models are not static assets. They require periodic retraining, recalibration, and,
+in some cases, redesign.
+Maintenance strategies include:
+• Scheduled retraining using updated datasets
+• Incremental learning for slowly evolving processes
+• Model retirement when assumptions are no longer valid
+From an engineering standpoint, every model must have:
+• A clearly defined domain of applicability
+• Documented assumptions and limitations
+• Traceability between data, model versions, and decisions
+This lifecycle-oriented view aligns machine learning practice with traditional chemical engineering
+standards for equipment, control systems, and safety analysis.
+68
+10.3 Engineering Case Study
+10.3.1 Decision Support for Process Optimization
+Consider a chemical reactor where yield depends on temperature, pressure, and residence time. A
+machine learning regression model has been developed to predict yield across feasible operating
+conditions.
+The model is deployed as an offline decision support tool to assist engineers in identifying optimal
+operating points under varying economic constraints. The trained model is used to evaluate yield
+predictions across a grid of operating conditions. Engineers then apply physical constraints, safety
+limits, and economic considerations to select feasible operating points.
+Importantly, the model does not replace engineering judgment. Instead, it narrows the search space
+and provides quantitative insight into trade-offs between competing objectives.
+10.4 Chapter Summary
+This chapter addressed the practical integration of machine learning into chemical engineering
+workflows. Key points included:
+• Deployment strategies ranging from offline analysis to closed-loop integration
+• The necessity of monitoring model performance under changing process conditions
+• Lifecycle management of machine learning models as engineering assets
+• A decision support case study illustrating responsible use of ML for process optimization
+With this chapter, the book completes the transition from foundational theory to applied machine
+learning practice in chemical engineering, preparing readers to deploy models responsibly in real
+industrial environments.
+69
+11 Appendix A: Python Primer for Engineers
+Python has become the dominant programming language for data-driven modeling due to its
+readability, extensive scientific ecosystem, and suitability for rapid prototyping. This appendix
+provides a concise reference for Python concepts most relevant to chemical engineers using machine
+learning.
+11.1 Variables and Data Types
+Python uses dynamic typing, but understanding data types is essential for numerical computing:
+• int: Integer values
+• float: Floating-point numbers
+• bool: Logical values
+• list: Ordered collections
+• tuple: Immutable ordered collections
+• dict: Key–value mappings
+temperature = 600.0 #float
+pressure = 20 #int
+is_safe = True #bool
+11.1.1 Control Structures
+Conditional statements and loops allow logical flow control in engineering computations.
+if temperature > 650:
+status = "High temperature"
+else:
+status = "Normal operation"
+#looping
+for i in range(5):
+print(i)
+70
+11.1.2 Functions and Modularity
+Functions encapsulate reusable logic and support clean model developmen
+def reactor_yield(T, P):
+return 0.5 + 0.001*T + 0.01*P
+Modular code improves reproducibility, maintainability, and traceability—key requirements in
+engineering practice.
+71
+12 Appendix B: NumPy, Pandas, scikit-learn, and
+TensorFlow Cheat Sheet
+This appendix summarizes the most frequently used commands across the core machine learning
+stack. ## NumPy
+Efficient numerical computation and array manipulation.
+import numpy as np
+x = np.array([1, 2, 3])
+x.mean()
+np.linalg.inv(np.eye(3))
+Key uses in chemical engineering:
+• Vectorized calculations
+• Linear algebra
+• Synthetic data generation
+12.1 Pandas
+Structured data handling using tabular formats. “‘ import pandas as pd
+df = pd.DataFrame({ “Temperature”: [550, 600, 650], “Yield”: [0.7, 0.75, 0.78] })
+df.describe()
+““ Used extensively for:
+• Process datasets
+• Experimental records
+• Data preprocessing
+72
+12.2 scikit-learn
+Classical machine learning models and validation tools.
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+Core functionalities:
+Regression and classification models
+Clustering and PCA
+Cross-validation and metrics
+12.2.1 TensorFlow
+Neural network modeling for nonlinear systems.
+import tensorflow as tf
+from tensorflow.keras import layers
+Primarily used when
+• Strong nonlinearities exist
+• High-dimensional input–output mappings are required
+73
+13 Appendix C: Synthetic Data Generation for
+Chemical Processes
+In many industrial and academic settings, real process data may be unavailable due to confidentiality,
+cost, or safety constraints. Synthetic data provides a controlled and physically interpretable
+alternative.
+13.1 Principles of Synthetic Data Generation
+Synthetic datasets should:
+• Reflect known physical relationships
+• Include realistic noise
+• Respect operating constraints
+A general formulation is:
+𝑦 = 𝑓(𝑥1, 𝑥2, … , 𝑥𝑛) + 𝜀
+where 𝜀 represents measurement noise or unmodeled effects. Example: Synthetic Reactor
+Data
+import numpy as np
+T = np.random.uniform(500, 700, 500)
+P = np.random.uniform(10, 30, 500)
+yield_data = (
+0.6
++ 0.0004 * (T - 600)
++ 0.01 * (P - 20)
++ np.random.normal(0, 0.02, 500)
+)
+Synthetic data enables:
+• Method development
+• Sensitivity analysis
+• Controlled benchmarking of models
+74
+14 Appendix D: Recommended Further Reading
+The following references provide authoritative coverage of machine learning, data analysis, and
+modeling in chemical engineering contexts.
+14.1 Machine Learning and Data Science
+• Bishop, C. M., Pattern Recognition and Machine Learning
+• Hastie, T., Tibshirani, R., Friedman, J., The Elements of Statistical Learning
+• Murphy, K. P., Machine Learning: A Probabilistic Perspective
+14.2 Chemical Engineering Applications
+• Stephanopoulos, G., Chemical Process Control
+• Ogunnaike, B. A., Ray, W. H., Process Dynamics, Modeling, and Control
+• Marlin, T. E., Process Control: Designing Processes and Control Systems
+14.3 Data-Driven Process Modeling
+• Qin, S. J., “Statistical Process Monitoring”
+• Kadlec, P., Gabrys, B., Strandt, S., “Data-driven Soft Sensors”
+75
+15 References
+1. Bishop, C. M. (2006). Pattern Recognition and Machine Learning. Springer.
+2. Box, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2015). Time Series Analysis:
+Forecasting and Control (5th ed.). Wiley.
+3. Breiman, L. (2001). Random forests. Machine Learning, 45(1), 5–32.
+4. Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.
+5. Hastie, T., Tibshirani, R., & Friedman, J. (2009). The Elements of Statistical Learning: Data
+Mining, Inference, and Prediction (2nd ed.). Springer.
+6. James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). An Introduction to Statistical
+Learning (2nd ed.). Springer.
+7. Kadlec, P., Gabrys, B., & Strandt, S. (2009). Data-driven soft sensors in the process industry.
+Computers & Chemical Engineering, 33(4), 795–814.
+8. Kingma, D. P., & Ba, J. (2015). Adam: A method for stochastic optimization. International
+Conference on Learning Representations (ICLR).
+9. LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436–444.
+10. Marlin, T. E. (2000). Process Control: Designing Processes and Control Systems for Dynamic
+Performance (2nd ed.). McGraw-Hill.
+11. Montgomery, D. C., Peck, E. A., & Vining, G. G. (2021). Introduction to Linear Regression
+Analysis (6th ed.). Wiley.
+12. Murphy, K. P. (2012). Machine Learning: A Probabilistic Perspective. MIT Press.
+13. Ogunnaike, B. A., & Ray, W. H. (1994). Process Dynamics, Modeling, and Control. Oxford
+University Press.
+14. Qin, S. J. (2012). Survey on data-driven industrial process monitoring and diagnosis. Annual
+Reviews in Control, 36(2), 220–234.
+15. Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning internal representations
+by error propagation. Nature, 323, 533–536.
+16. Stephanopoulos, G. (1984). Chemical Process Control: An Introduction to Theory and
+Practice. Prentice Hall.
+17. Vapnik, V. N. (1998). Statistical Learning Theory. Wiley.
+18. Wold, S., Esbensen, K., & Geladi, P. (1987). Principal component analysis. Chemometrics
+and Intelligent Laboratory Systems, 2(1–3), 37–52.
+19. Zadeh, L. A. (1965). Fuzzy sets. Information and Control, 8(3), 338–353.
+76

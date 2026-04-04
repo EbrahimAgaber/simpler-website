@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Articles on Process Design & ML — Ebrahim Gaber</title>
+  <link rel="stylesheet" href="brand.css">
+  <meta name="description" content="Read Simpler by Ebrahim Gaber — practical articles on process design, machine learning, and engineering insights.">
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="brand-title">Simpler</div>
+          <div class="brand-subtitle">Ebrahim Gaber</div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html" class="active">Articles</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="control-buttons">
+        <button id="themeToggle" class="small-btn" title="Toggle theme">🌓</button>
+        <button id="langToggle" class="small-btn" title="Toggle language">AR</button>
+        <button id="navToggle" class="small-btn nav-toggle" title="Toggle navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BLOG SECTION -->
+  <section class="hero glass-bg" style="position:relative; padding:var(--space-xl) 0 60px;">
+    <div class="hero-bg-anim"></div>
+    <div class="container center" style="position:relative; z-index:2;">
+      <h1 class="section-title" style="font-size:36px; margin-bottom:var(--space-md); color: var(--color-primary);">Articles & Insights</h1>
+      <p class="section-sub" style="max-width:600px; margin:0 auto; color: var(--color-text);">Practical lessons from process design, data analytics, and applied machine learning in engineering.</p>
+
+      <!-- Search -->
+      <div style="margin-top: 2rem; display:flex; justify-content:center;">
+        <input id="searchBox" type="text" placeholder="Search articles..." style="padding:12px 20px;border-radius:24px;border:1px solid rgba(11,37,63,0.15);width:100%;max-width:400px;background:rgba(255,255,255,0.8);backdrop-filter:blur(10px);box-shadow:0 6px 16px rgba(0,0,0,0.05);outline:none;font-family:inherit;">
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:var(--space-lg);">
+    <div class="container">
+
+
+      <div id="blogGrid" class="blog-grid">
+        <p class="muted" id="loadingMsg">Loading articles...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div style="font-weight:700">Simpler — Ebrahim Gaber</div>
+      <div class="muted" style="font-size:13px">© <span id="year"></span></div>
+    </div>
+  </footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  async function loadBlogPosts() {
+    const grid = document.getElementById('blogGrid');
+    const loadingMsg = document.getElementById('loadingMsg');
+    try {
+      const res = await fetch('blog-data.json');
+      const posts = await res.json();
+      grid.innerHTML = posts.map((p, i) => `
+        <article class="blog-card glass-card" data-index="${i}">
+          <div class="meta" style="color:var(--color-accent);font-weight:600;">${p.category} • ${p.readTime}</div>
+          <h3 class="title" style="font-size:20px;margin-bottom:10px;">${p.title}</h3>
+          <p class="muted" style="margin-bottom:16px;">${p.summary}</p>
+          <div>
+            <button class="cta-ghost" style="color:var(--color-primary);border-color:rgba(11,37,63,0.2);padding:6px 12px;font-size:14px;" data-file="${p.url.replace('article.html?file=', '')}">Read More →</button>
+          </div>
+        </article>
+      `).join("");
+
+      // Add event listeners to open posts
+      grid.querySelectorAll("button[data-file]").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const file = btn.dataset.file;
+          const viewer = document.getElementById("viewerInner");
+          const modal = document.getElementById("viewerModal");
+          viewer.innerHTML = "<p>Loading article...</p>";
+
+          const mdText = await fetch(file).then(r => r.text());
+          viewer.innerHTML = marked.parse(mdText);
+
+          modal.style.display = "flex";
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+    } catch (err) {
+      console.error('Failed to load blog posts:', err);
+      grid.innerHTML = "<p style='color:red'>Failed to load articles. Please refresh.</p>";
+    } finally {
+      if (loadingMsg) loadingMsg.remove();
+    }
+  }
+
+  loadBlogPosts();
+
+  // Close modal logic
+  document.getElementById("viewerClose").addEventListener("click", () => {
+    document.getElementById("viewerModal").style.display = "none";
+    document.body.style.overflow = "";
+  });
+</script>
+
+  <script src="main.js"></script>
+</body>
+</html>

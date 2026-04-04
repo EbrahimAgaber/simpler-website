@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Article — Simpler</title>
+  <link rel="stylesheet" href="brand.css">
+  <meta name="description" content="Read full articles from Simpler by Ebrahim Gaber — chemical engineering, process design, and machine learning insights.">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="progress-bar" style="position:fixed;top:0;left:0;height:4px;background:var(--color-accent);width:0%;z-index:9999;transition:width 0.1s;"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="brand-title">Simpler</div>
+          <div class="brand-subtitle">Ebrahim Gaber</div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html" class="active">Articles</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="control-buttons">
+        <button id="themeToggle" class="small-btn" title="Toggle theme">🌓</button>
+        <button id="langToggle" class="small-btn" title="Toggle language">AR</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ARTICLE CONTAINER -->
+  <main class="container" style="padding:60px 0;max-width:800px;">
+    <div style="margin-bottom: var(--space-xl);">
+      <a href="blog.html" class="cta-ghost" style="color: var(--color-primary); border-color: rgba(11,37,63,0.2); font-size: 14px;">← Back to Articles</a>
+    </div>
+    <div class="card glass-card" style="padding: var(--space-xl);">
+      <div id="articleContent" class="article-body" style="line-height:1.8;font-size:17px;color:var(--color-text)">
+        <p class="muted">Loading chapter...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div style="font-weight:700">Simpler — Ebrahim Gaber</div>
+      <div class="muted" style="font-size:13px">© <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    async function loadArticle() {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get('file');
+      const container = document.getElementById('articleContent');
+
+      if (!file) {
+        container.innerHTML = "<p style='color:red'>No article specified.</p>";
+        return;
+      }
+
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error("Failed to fetch article");
+        const markdown = await response.text();
+        container.innerHTML = marked.parse(markdown);
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = "<p style='color:red'>Failed to load this article. Please try again later.</p>";
+      }
+    }
+
+    loadArticle();
+
+    // Reading progress
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollPos / docHeight) * 100;
+      document.getElementById('progress-bar').style.width = scrollPos > 0 ? progress + '%' : '0%';
+    });
+  </script>
+
+  <style>
+    .article-body h1 { color: var(--color-primary); margin-bottom: var(--space-md); font-size: 32px; }
+    .article-body h2 { margin-top: var(--space-lg); color: var(--color-primary); font-size: 24px; padding-bottom: 8px; border-bottom: 1px solid var(--color-neutral); }
+    .article-body h3 { margin-top: var(--space-md); color: var(--color-primary); font-size: 20px; }
+    .article-body p { margin-bottom: var(--space-md); font-size: 17px; leading-trim: both; }
+    .article-body pre { background: var(--color-neutral); padding: var(--space-md); border-radius: var(--radius); overflow-x: auto; font-size: 14px; border: 1px solid rgba(11,37,63,0.05); }
+    .article-body code { font-family: monospace; }
+    :root[data-theme="dark"] .article-body h1, :root[data-theme="dark"] .article-body h2, :root[data-theme="dark"] .article-body h3 { color: var(--color-text); }
+  </style>
+
+  <script src="main.js"></script>
+</body>
+</html>
