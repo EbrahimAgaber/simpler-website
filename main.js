@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTranslations(lang);
     };
 
-    const savedLang = localStorage.getItem('lang') || 'en';
+    const savedLang = localStorage.getItem('lang') || 'ar';
     setLanguage(savedLang, savedLang === 'ar' ? 'rtl' : 'ltr');
 
     langToggle.addEventListener('click', () => {
