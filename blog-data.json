@@ -1,72 +1,9 @@
 [
   {
-    "title": "Chapter 1: Introduction to Machine Learning in",
-    "category": "Data-Driven Process",
-    "readTime": "4 min read",
-    "summary": "Chemical Engineering 1.1 Introduction Machine learning (ML) has emerged as a transformative tool in chemical engineering, enabling engineers to extrac...",
-    "url": "article.html?file=docs/chapter_1.md"
-  },
-  {
-    "title": "Chapter 2: Python and Data Handling for",
-    "category": "Data-Driven Process",
-    "readTime": "5 min read",
-    "summary": "Engineers 2.1 Introduction The effectiveness of machine learning in chemical engineering depends critically on how data are represented, processed, an...",
-    "url": "article.html?file=docs/chapter_2.md"
-  },
-  {
-    "title": "Chapter 3: Regression Techniques for Process",
-    "category": "Data-Driven Process",
-    "readTime": "5 min read",
-    "summary": "Modeling 3.1 Introduction Regression is a cornerstone of data-driven modeling in chemical engineering. It provides a quanti- tative framework to relat...",
-    "url": "article.html?file=docs/chapter_3.md"
-  },
-  {
-    "title": "Chapter 4: Classification for Process Stability",
-    "category": "Data-Driven Process",
-    "readTime": "4 min read",
-    "summary": "4.1 Introduction Chemical reactors and process units often operate under conditions that can be broadly categorized as stable or unstable. Stability i...",
-    "url": "article.html?file=docs/chapter_4.md"
-  },
-  {
-    "title": "Chapter 5: Clustering Process Conditions",
-    "category": "Data-Driven Process",
-    "readTime": "5 min read",
-    "summary": "5.1 Introduction Chemical engineering systems generate high-dimensional operating data from sensors, analyzers, and control systems. Unlike regression...",
-    "url": "article.html?file=docs/chapter_5.md"
-  },
-  {
-    "title": "Chapter 6: Dimensionality Reduction and",
-    "category": "Data-Driven Process",
-    "readTime": "4 min read",
-    "summary": "Principal Component Analysis (PCA) 6.1 Introduction High-dimensional process data are increasingly common in chemical engineering due to the prolifer-...",
-    "url": "article.html?file=docs/chapter_6.md"
-  },
-  {
-    "title": "Chapter 7: Neural Networks for Process",
-    "category": "Data-Driven Process",
-    "readTime": "5 min read",
-    "summary": "Modeling 7.1 Introduction Many chemical engineering processes exhibit strong nonlinear behavior arising from reaction kinetics, phase equilibria, tran...",
-    "url": "article.html?file=docs/chapter_7.md"
-  },
-  {
-    "title": "Chapter 8: Time Series Modeling in Process",
-    "category": "Data-Driven Process",
-    "readTime": "3 min read",
-    "summary": "Engineering 8.1 Introduction Chemical processes are inherently dynamic. Unlike static datasets where observations are indepen- dent, process data are ...",
-    "url": "article.html?file=docs/chapter_8.md"
-  },
-  {
-    "title": "Chapter 9: Model Validation, Uncertainty, and",
-    "category": "Data-Driven Process",
-    "readTime": "3 min read",
-    "summary": "Interpretability 9.1 Introduction Machine learning models are increasingly used to support decision-making in chemical engineering applications, inclu...",
-    "url": "article.html?file=docs/chapter_9.md"
-  },
-  {
-    "title": "Chapter 10: Integrating Machine Learning",
-    "category": "Data-Driven Process",
-    "readTime": "7 min read",
-    "summary": "into Chemical Engineering Practice 10.1 Introduction Machine learning models achieve their true value only when they are successfully integrated into ...",
-    "url": "article.html?file=docs/chapter_10.md"
+    "title": "How I Modeled NGL Fractionation",
+    "category": "Process Optimization",
+    "readTime": "8 min read",
+    "summary": "Step-by-step guide for setting up base-case simulations and preparing datasets for ML.",
+    "url": "article.html?file=docs/ngl-fractionation.md"
   }
 ]

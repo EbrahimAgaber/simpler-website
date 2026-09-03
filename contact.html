@@ -12,15 +12,17 @@
       <div class="brand">
         <div class="logo">S</div>
         <div>
-          <div class="brand-title">Simpler</div>
-          <div class="brand-subtitle">Ebrahim Gaber</div>
+          <div class="brand-title" data-i18n="brand_title">Simpler</div>
+          <div class="brand-subtitle" data-i18n="brand_subtitle">Ebrahim Gaber</div>
         </div>
       </div>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Articles</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="products.html" data-i18n="nav_products">Products</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="blog.html" data-i18n="nav_articles">Articles</a>
+        <a href="contact.html" class="active" data-i18n="nav_contact">Contact</a>
+        <a href="./toolkit/pump-system.html" data-i18n="nav_toolkit">Toolkit</a>
       </div>
       <div class="control-buttons">
         <button id="themeToggle" class="small-btn" title="Toggle theme" aria-label="Toggle dark and light theme">🌓</button>
@@ -30,25 +32,22 @@
     </div>
   </nav>
 
-  <section class="hero glass-bg" style="position:relative; min-height:80vh; display:flex; align-items:center;">
-    <div class="hero-bg-anim"></div>
-    <div class="container center" style="position:relative; z-index:2; max-width:800px;">
-      <h2 class="section-title" style="font-size:42px; margin-bottom:var(--space-md); color: var(--color-primary);">Get in Touch</h2>
-      <p class="section-sub" style="font-size:18px; margin-bottom:var(--space-xl); color: var(--color-text);">I respond faster to clear, concise messages. Use email for proposals and WhatsApp for quick clarifications.</p>
+  <section>
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">I respond faster to clear, concise messages. Use email for proposals and WhatsApp for quick clarifications.</p>
 
-      <div class="contact-cards" style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-xl); align-items:stretch; text-align:left;">
-        <div class="contact-card glass-card" style="padding:40px; border-radius:24px;">
-          <div style="font-size:32px; margin-bottom:16px;">📧</div>
-          <h3 style="font-size:24px; margin-bottom:12px; color:var(--color-primary);">Email</h3>
-          <p class="muted" style="margin-bottom:32px; flex-grow:1;">Send a short message with project summary and attachments if relevant.</p>
-          <a class="cta-primary" style="display:block; text-align:center;" href="mailto:ea.gaber10@gmail.com" id="emailBtn">Email Me</a>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p class="muted">Send a short message with project summary and attachments if relevant.</p>
+          <a class="cta-primary" href="mailto:ea.gaber10@gmail.com" id="emailBtn">Email Me</a>
         </div>
 
-        <div class="contact-card glass-card" style="padding:40px; border-radius:24px;">
-          <div style="font-size:32px; margin-bottom:16px;">💬</div>
-          <h3 style="font-size:24px; margin-bottom:12px; color:var(--color-primary);">WhatsApp</h3>
-          <p class="muted" style="margin-bottom:32px; flex-grow:1;">Start with a short context so I can reply efficiently.</p>
-          <a class="cta-ghost" style="display:block; text-align:center; color:var(--color-primary); border-color:rgba(11,37,63,0.2);" href="https://wa.me/96653317485?text=Hello%20Ebrahim%2C%20I%20would%20like%20to%20discuss%20a%20project" id="waBtn" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <p class="muted">Start with a short context so I can reply efficiently.</p>
+          <a class="cta-primary" href="https://wa.me/96653317485?text=Hello%20Ebrahim%2C%20I%20would%20like%20to%20discuss%20a%20project" id="waBtn" target="_blank" rel="noopener">Chat on WhatsApp</a>
         </div>
       </div>
     </div>

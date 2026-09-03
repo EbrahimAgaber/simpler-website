@@ -14,16 +14,18 @@
       <div class="brand">
         <div class="logo">S</div>
         <div>
-          <div class="brand-title">Simpler</div>
-          <div class="brand-subtitle">Ebrahim Gaber</div>
+          <div class="brand-title" data-i18n="brand_title">Simpler</div>
+          <div class="brand-subtitle" data-i18n="brand_subtitle">Ebrahim Gaber</div>
         </div>
       </div>
 
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="blog.html" class="active">Articles</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="products.html" data-i18n="nav_products">Products</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="blog.html" class="active" data-i18n="nav_articles">Articles</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <a href="./toolkit/pump-system.html" data-i18n="nav_toolkit">Toolkit</a>
       </div>
 
       <div class="control-buttons">
@@ -35,22 +37,15 @@
   </nav>
 
   <!-- BLOG SECTION -->
-  <section class="hero glass-bg" style="position:relative; padding:var(--space-xl) 0 60px;">
-    <div class="hero-bg-anim"></div>
-    <div class="container center" style="position:relative; z-index:2;">
-      <h1 class="section-title" style="font-size:36px; margin-bottom:var(--space-md); color: var(--color-primary);">Articles & Insights</h1>
-      <p class="section-sub" style="max-width:600px; margin:0 auto; color: var(--color-text);">Practical lessons from process design, data analytics, and applied machine learning in engineering.</p>
-
-      <!-- Search -->
-      <div style="margin-top: 2rem; display:flex; justify-content:center;">
-        <input id="searchBox" type="text" placeholder="Search articles..." style="padding:12px 20px;border-radius:24px;border:1px solid rgba(11,37,63,0.15);width:100%;max-width:400px;background:rgba(255,255,255,0.8);backdrop-filter:blur(10px);box-shadow:0 6px 16px rgba(0,0,0,0.05);outline:none;font-family:inherit;">
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top:var(--space-lg);">
+  <section>
     <div class="container">
+      <h1 class="section-title">Articles & Insights</h1>
+      <p class="section-sub">Practical lessons from process design, data analytics, and applied machine learning in engineering.</p>
 
+      <!-- Search (optional) -->
+      <div style="margin-bottom: 1rem; text-align:right;">
+        <input id="searchBox" type="text" placeholder="Search articles..." style="padding:8px 12px;border-radius:8px;border:1px solid #ccc;max-width:260px;">
+      </div>
 
       <div id="blogGrid" class="blog-grid">
         <p class="muted" id="loadingMsg">Loading articles...</p>
@@ -77,12 +72,12 @@
       const res = await fetch('blog-data.json');
       const posts = await res.json();
       grid.innerHTML = posts.map((p, i) => `
-        <article class="blog-card glass-card" data-index="${i}">
-          <div class="meta" style="color:var(--color-accent);font-weight:600;">${p.category} • ${p.readTime}</div>
-          <h3 class="title" style="font-size:20px;margin-bottom:10px;">${p.title}</h3>
-          <p class="muted" style="margin-bottom:16px;">${p.summary}</p>
-          <div>
-            <button class="cta-ghost" style="color:var(--color-primary);border-color:rgba(11,37,63,0.2);padding:6px 12px;font-size:14px;" data-file="${p.url.replace('article.html?file=', '')}">Read More →</button>
+        <article class="blog-card" data-index="${i}">
+          <div class="meta">${p.category} • ${p.readTime}</div>
+          <h3 class="title">${p.title}</h3>
+          <p class="muted">${p.summary}</p>
+          <div style="margin-top:8px">
+            <button class="small-btn" data-file="${p.file}">Read More →</button>
           </div>
         </article>
       `).join("");
