@@ -122,10 +122,28 @@ nav.scrolled{padding:var(--space-sm) 0;background:var(--color-bg);box-shadow:0 4
 .cta-primary:hover, .button-primary:hover{transform:translateY(-2px);opacity:0.95}
 
 .cta-ghost{
-  background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.95);padding:10px 16px;
-  border-radius:12px;display:inline-block;transition:border-color .15s, background .15s;
+  background:transparent;border:1px solid var(--color-accent);color:var(--color-accent);padding:10px 18px;
+  border-radius:12px;font-weight:600;display:inline-block;transition:all .15s ease;
 }
-.cta-ghost:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.4);}
+.cta-ghost:hover{background:rgba(0,119,255,0.08);border-color:var(--color-accent);opacity:0.95;}
+
+.hero .cta-ghost{
+  border:1px solid rgba(255,255,255,0.3);color:var(--color-text-inverse);
+}
+.hero .cta-ghost:hover{
+  background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.7);
+}
+
+input[type="text"], input[type="search"]{
+  background:var(--color-bg);color:var(--color-text);border:1px solid var(--color-neutral);
+  padding:8px 14px;border-radius:10px;font-family:inherit;transition:border-color .15s ease;
+}
+input[type="text"]:focus, input[type="search"]:focus{
+  outline:none;border-color:var(--color-accent);
+}
+:root[data-theme="dark"] input[type="text"], :root[data-theme="dark"] input[type="search"]{
+  background:var(--color-neutral);border-color:rgba(255,255,255,0.12);
+}
 
 
 /* HERO (homepage) */
@@ -225,8 +243,15 @@ p.section-sub{color:var(--color-text-light);margin:0 0 var(--space-md)}
 .cert-card .title{font-weight:700;color:var(--color-primary)}
 .muted-small{font-size:13px;color:var(--color-text-light)}
 .cert-actions{margin-top:auto;display:flex;gap:var(--space-sm);align-items:center;flex-wrap:wrap}
-.verify-link{font-size:14px;color:var(--color-accent)}
-:root[data-theme="dark"] .cert-card{background:var(--color-neutral)}
+.verify-link{
+  font-size:13px;font-weight:600;color:var(--color-accent);background:rgba(0,119,255,0.08);
+  padding:6px 14px;border-radius:8px;border:1px solid rgba(0,119,255,0.25);
+  display:inline-flex;align-items:center;gap:4px;transition:all .15s ease;
+}
+.verify-link:hover{
+  background:var(--color-accent);color:#FFFFFF;text-decoration:none;transform:translateY(-1px);
+}
+:root[data-theme="dark"] .cert-card{background:var(--color-neutral);border:1px solid rgba(255,255,255,0.06)}
 :root[data-theme="dark"] .cert-card .title{color:var(--color-text)}
 
 /* Blog masonry */

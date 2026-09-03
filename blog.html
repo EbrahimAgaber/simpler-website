@@ -25,7 +25,6 @@
         <a href="about.html" data-i18n="nav_about">About</a>
         <a href="blog.html" class="active" data-i18n="nav_articles">Articles</a>
         <a href="contact.html" data-i18n="nav_contact">Contact</a>
-        <a href="./toolkit/pump-system.html" data-i18n="nav_toolkit">Toolkit</a>
       </div>
 
       <div class="control-buttons">
@@ -39,16 +38,16 @@
   <!-- BLOG SECTION -->
   <section>
     <div class="container">
-      <h1 class="section-title">Articles & Insights</h1>
-      <p class="section-sub">Practical lessons from process design, data analytics, and applied machine learning in engineering.</p>
+      <h1 class="section-title" data-i18n="articles_page_title">Articles & Insights</h1>
+      <p class="section-sub" data-i18n="articles_page_sub">Practical lessons from process design, data analytics, and applied machine learning in engineering.</p>
 
-      <!-- Search (optional) -->
+      <!-- Search -->
       <div style="margin-bottom: 1rem; text-align:right;">
-        <input id="searchBox" type="text" placeholder="Search articles..." style="padding:8px 12px;border-radius:8px;border:1px solid #ccc;max-width:260px;">
+        <input id="searchBox" type="text" placeholder="Search articles..." data-i18n-placeholder="articles_search_placeholder" style="max-width:260px;">
       </div>
 
       <div id="blogGrid" class="blog-grid">
-        <p class="muted" id="loadingMsg">Loading articles...</p>
+        <p class="muted" id="loadingMsg" data-i18n="articles_loading">Loading articles...</p>
       </div>
     </div>
   </section>
@@ -56,7 +55,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div style="font-weight:700">Simpler — Ebrahim Gaber</div>
+      <div style="font-weight:700" data-i18n="footer_rights">Simpler — Ebrahim Gaber</div>
       <div class="muted" style="font-size:13px">© <span id="year"></span></div>
     </div>
   </footer>
