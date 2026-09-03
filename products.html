@@ -52,10 +52,25 @@
           A production-grade, offline-first digital merchant ledger and smart invoicing system. Tailored for grocery stores, retailers, and distributors to track credit, manage sales, and print ZATCA invoices without internet.
         </p>
 
-        <!-- CTAs -->
-        <div class="section-gap flex" style="flex-wrap:wrap; margin-top:var(--space-md);">
-          <a class="cta-primary" href="https://github.com/EbrahimAgaber/the-smart-dafter" target="_blank" data-i18n="dafter_btn_github">📂 GitHub Repository</a>
-          <a class="cta-ghost" href="http://localhost:4173/" target="_blank" data-i18n="dafter_btn_demo" style="border:1px solid var(--color-accent); padding:10px 18px; border-radius:12px; font-weight:600;">🚀 Launch Live App</a>
+        <!-- CTAs: Direct App Launcher, Offline ZIP Download, and GitHub -->
+        <div class="section-gap flex" style="flex-wrap:wrap; margin-top:var(--space-md); gap:var(--space-sm);">
+          <a class="cta-primary" href="./app/index.html" target="_blank" style="display:inline-flex; align-items:center; gap:8px;">
+            <span>📲</span>
+            <span data-i18n="dafter_btn_install">Open & Install on Mobile</span>
+          </a>
+          <a class="cta-ghost" href="./downloads/the-smart-dafter.zip" download="the-smart-dafter.zip" style="border:1px solid var(--color-accent); padding:10px 18px; border-radius:12px; font-weight:600; display:inline-flex; align-items:center; gap:8px;">
+            <span>📦</span>
+            <span data-i18n="dafter_btn_download">Download Offline (.ZIP)</span>
+          </a>
+          <a class="cta-ghost" href="https://github.com/EbrahimAgaber/the-smart-dafter" target="_blank" style="border:1px solid var(--color-neutral); padding:10px 18px; border-radius:12px; font-weight:600; display:inline-flex; align-items:center; gap:8px;">
+            <span>📂</span>
+            <span data-i18n="dafter_btn_github">GitHub Repository</span>
+          </a>
+        </div>
+
+        <!-- Quick Install Guide Banner -->
+        <div style="margin-top:var(--space-md); padding:var(--space-sm) var(--space-md); border-radius:12px; background:rgba(0,119,255,0.06); border:1px solid rgba(0,119,255,0.2); font-size:13px;" class="muted">
+          💡 <strong data-i18n="install_hint_title">How to Install on Mobile:</strong> <span data-i18n="install_hint_desc">Click 'Open & Install on Mobile' on your phone, then tap 'Install App' or 'Add to Home Screen' from your browser menu.</span>
         </div>
 
         <!-- Features Grid -->
