@@ -54,6 +54,25 @@ body{
   line-height:1.6;
   transition:background .25s ease,color .25s ease;
 }
+
+/* Arabic & RTL Support */
+html[lang="ar"], html[dir="rtl"], html[dir="rtl"] body, html[dir="rtl"] input, html[dir="rtl"] button {
+  font-family: var(--font-arabic) !important;
+}
+
+html[dir="rtl"] .hero-left {
+  text-align: right;
+}
+
+html[dir="rtl"] .hero-left .section-gap a + a {
+  margin-left: 0 !important;
+  margin-right: var(--space-sm) !important;
+}
+
+html[dir="rtl"] .nav-links a {
+  font-family: var(--font-arabic);
+}
+
 a{color:var(--color-accent);text-decoration:none;transition:color .15s}
 a:hover{color:var(--color-accent);opacity:0.8}
 .container{max-width:var(--container-width);margin:0 auto;padding:0 var(--space-md)}
@@ -283,3 +302,38 @@ footer{
   h2.section-title{font-size:24px}
   section{padding:var(--space-lg) 0}
 }
+
+/* Product Showcase Styles */
+.product-badge{
+  display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;
+  background:rgba(0,119,255,0.12);color:var(--color-accent);margin-bottom:var(--space-sm);
+}
+.product-hero-card{
+  background:var(--color-bg);border:1px solid var(--color-neutral);border-radius:18px;
+  padding:var(--space-xl);box-shadow:var(--card-shadow);margin-top:var(--space-lg);
+  transition:all .25s ease;
+}
+:root[data-theme="dark"] .product-hero-card{
+  background:var(--color-neutral);border-color:rgba(255,255,255,0.08);
+}
+.features-grid-3{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:var(--space-md);margin-top:var(--space-lg);
+}
+.feature-item-card{
+  background:var(--color-bg);border:1px solid var(--color-neutral);padding:var(--space-md);
+  border-radius:var(--radius);transition:transform .2s ease,box-shadow .2s ease;
+}
+:root[data-theme="dark"] .feature-item-card{
+  background:rgba(30,41,59,0.6);border-color:rgba(255,255,255,0.05);
+}
+.feature-item-card:hover{
+  transform:translateY(-3px);box-shadow:0 8px 20px rgba(11,37,63,0.12);
+}
+.feature-icon{
+  font-size:24px;margin-bottom:var(--space-xs);
+}
+.teaser-card{
+  background:linear-gradient(135deg,rgba(0,119,255,0.06),rgba(165,243,182,0.08));
+  border:1px dashed var(--color-accent);border-radius:18px;padding:var(--space-lg);margin-top:var(--space-lg);
+}

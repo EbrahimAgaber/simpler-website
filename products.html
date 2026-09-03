@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Products & Software Solutions | Simpler — Ebrahim Gaber</title>
+  <link rel="stylesheet" href="brand.css">
+  <meta name="description" content="Commercial products and software tools developed by Ebrahim Gaber — including The Smart Dafter and Smart Touch POS.">
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div class="brand-title" data-i18n="brand_title">Simpler</div>
+          <div class="brand-subtitle" data-i18n="brand_subtitle">Ebrahim Gaber</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="products.html" class="active" data-i18n="nav_products">Products</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="blog.html" data-i18n="nav_articles">Articles</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <a href="./toolkit/pump-system.html" data-i18n="nav_toolkit">Toolkit</a>
+      </div>
+      <div class="control-buttons">
+        <button id="themeToggle" class="small-btn" title="Toggle theme" aria-label="Toggle dark and light theme">🌓</button>
+        <button id="langToggle" class="small-btn" title="Toggle language" aria-label="Toggle language">AR</button>
+        <button id="navToggle" class="small-btn nav-toggle" title="Toggle navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="padding:var(--space-xl) 0 var(--space-md);">
+    <div class="container center">
+      <h1 class="section-title" data-i18n="products_page_title" style="font-size:36px; margin-bottom:var(--space-sm);">Products & Software Solutions</h1>
+      <p class="section-sub muted" data-i18n="products_page_sub" style="max-width:760px; margin:0 auto;">
+        Handcrafted, robust digital products designed for real-world retail operations, business efficiency, and data-driven consulting.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Product 1: The Smart Dafter (الدفتر الذكي) -->
+      <section class="product-hero-card" id="the-smart-dafter">
+        <div class="product-badge" data-i18n="dafter_badge">⭐ Flagship Software • Production Ready</div>
+        <h2 style="font-size:28px; margin:var(--space-xs) 0 var(--space-sm); color:var(--color-primary);" data-i18n="dafter_title">The Smart Dafter — الدفتر الذكي</h2>
+        <p class="muted" style="font-size:16px; line-height:1.7; max-width:850px;" data-i18n="dafter_tagline">
+          A production-grade, offline-first digital merchant ledger and smart invoicing system. Tailored for grocery stores, retailers, and distributors to track credit, manage sales, and print ZATCA invoices without internet.
+        </p>
+
+        <!-- CTAs -->
+        <div class="section-gap flex" style="flex-wrap:wrap; margin-top:var(--space-md);">
+          <a class="cta-primary" href="https://github.com/EbrahimAgaber/the-smart-dafter" target="_blank" data-i18n="dafter_btn_github">📂 GitHub Repository</a>
+          <a class="cta-ghost" href="http://localhost:4173/" target="_blank" data-i18n="dafter_btn_demo" style="border:1px solid var(--color-accent); padding:10px 18px; border-radius:12px; font-weight:600;">🚀 Launch Live App</a>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid-3">
+          <div class="feature-item-card">
+            <div class="feature-icon">⚡</div>
+            <h3 style="font-size:16px; font-weight:700; margin-bottom:var(--space-xs);" data-i18n="dafter_feat_1_title">100% Offline & PWA</h3>
+            <p class="muted" style="font-size:14px; margin:0;" data-i18n="dafter_feat_1_desc">
+              Dual-layer SQLite + IndexedDB storage handles 50,000+ transactions locally. 1-tap mobile install on Android & iOS.
+            </p>
+          </div>
+
+          <div class="feature-item-card">
+            <div class="feature-icon">🛡️</div>
+            <h3 style="font-size:16px; font-weight:700; margin-bottom:var(--space-xs);" data-i18n="dafter_feat_2_title">Security Guard Licensing</h3>
+            <p class="muted" style="font-size:14px; margin:0;" data-i18n="dafter_feat_2_desc">
+              Cryptographically signed offline activation keys (days, months, years, lifetime) with 100% data read preservation.
+            </p>
+          </div>
+
+          <div class="feature-item-card">
+            <div class="feature-icon">🧾</div>
+            <h3 style="font-size:16px; font-weight:700; margin-bottom:var(--space-xs);" data-i18n="dafter_feat_3_title">Optional VAT & ZATCA QR</h3>
+            <p class="muted" style="font-size:14px; margin:0;" data-i18n="dafter_feat_3_desc">
+              Toggle between 0% standard commercial credit invoices and 15% Saudi ZATCA Phase 2 TLV Base64 QR invoices.
+            </p>
+          </div>
+
+          <div class="feature-item-card">
+            <div class="feature-icon">🔊</div>
+            <h3 style="font-size:16px; font-weight:700; margin-bottom:var(--space-xs);" data-i18n="dafter_feat_4_title">Audio & Low-Literacy Usability</h3>
+            <p class="muted" style="font-size:14px; margin:0;" data-i18n="dafter_feat_4_desc">
+              Voice feedback, cash register chimes, color avatar badges, and fast POS payment chips for low-literacy users.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product 2: Smart Touch POS (نقاط البيع الذكية - Teaser) -->
+      <section class="teaser-card" id="smart-touch-pos">
+        <div class="product-badge" style="background:rgba(165,243,182,0.3); color:#065f46;" data-i18n="pos_badge">⏳ In Active Development • Coming Soon</div>
+        <h2 style="font-size:24px; margin:var(--space-xs) 0 var(--space-sm); color:var(--color-primary);" data-i18n="pos_title">Smart Touch POS — نقاط البيع الذكية</h2>
+        <p class="muted" style="font-size:15px; line-height:1.7; max-width:800px;" data-i18n="pos_tagline">
+          A lightning-fast, touch-friendly Point of Sale (POS) application for retail counters. Features instant barcode scanning, dual payment support, fast receipts, and synchronized inventory tracking.
+        </p>
+        <p style="font-size:14px; font-weight:600; color:var(--color-accent); margin-top:var(--space-sm);" data-i18n="pos_coming_soon">
+          Coming Soon — Currently in development for small-to-medium supermarkets and retail shops.
+        </p>
+      </section>
+
+      <!-- Contact CTA -->
+      <section id="cta" class="center" style="margin:var(--space-xl) 0;">
+        <h2 class="section-title" data-i18n="cta_title">Start a project or ask a question</h2>
+        <p class="muted" data-i18n="cta_sub">Email or WhatsApp are the best ways to reach me.</p>
+        <div class="section-gap">
+          <a class="cta-primary" href="contact.html" data-i18n="cta_btn">Contact Me</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="font-weight:700" data-i18n="footer_rights">Simpler — Ebrahim Gaber</div>
+      <div class="muted" style="font-size:13px">© <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
